@@ -6,7 +6,6 @@ import math
 import unicodedata
 from PIL import Image, ImageDraw
 import arcade
-from world_fx import draw_gun
 
 # Exact bitmap alphabet: native UI assets, no system font dependency.
 ROWS = {

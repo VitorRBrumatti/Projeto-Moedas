@@ -1,5 +1,8 @@
 # Coin Commando — auditoria de assets locais
 
+> Histórico de produção preservado. Estrutura atual: `assets/README.md` e
+> `docs/README.md`. Arquivos V5–V8 ficam em `assets/archive/`; relatórios, em `docs/history/`.
+
 **Data da auditoria:** 10/11/2026  
 **Escopo:** arquivos compactados encontrados em `../`, material extraído em
 `_audit_workspace/` e recursos atualmente usados pelo jogo. Nenhum arquivo

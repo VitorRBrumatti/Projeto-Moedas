@@ -1,6 +1,5 @@
 """Perigos com aviso visual e desenho de armas rotacionadas no mundo."""
 
-import math
 import arcade
 
 
@@ -43,7 +42,7 @@ class Hazard(arcade.SpriteSolidColor):
         return False
 
     def draw_fx(self, clock):
-        from sprites_v6 import draw
+        from sprite_assets import draw
         x = self.center_x
         if self.kind == "laser":
             draw("emitter", x, 114, 44, 48, clock)
@@ -66,7 +65,7 @@ class Barrel(arcade.SpriteSolidColor):
         self.hp = 1
 
     def draw_fx(self):
-        from sprites_v6 import draw
+        from sprite_assets import draw
         draw("jerrycan", self.center_x, self.center_y + 5, 32, 44,
              arcade.get_window().current_view.run.time)
 

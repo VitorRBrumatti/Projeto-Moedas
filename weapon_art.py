@@ -3,7 +3,6 @@
 from dataclasses import dataclass
 from functools import lru_cache
 import math
-from PIL import Image, ImageDraw
 import arcade
 
 MUZZLES = {"glock": 22, "ak": 36, "minigun": 42}
@@ -54,7 +53,7 @@ class GunPose:
 
 @lru_cache(maxsize=96)
 def gun_texture(kind, flip=False, frame=0):
-    from sprites_v6 import frames
+    from sprite_assets import frames
     tex = frames("weapon-" + kind)[frame % 8]
     return tex.flip_top_bottom() if flip else tex
 

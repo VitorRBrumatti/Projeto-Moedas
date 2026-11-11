@@ -22,7 +22,7 @@ class Particula:
 
     def draw(self):
         if self.vida > 0:
-            from sprites_v6 import draw
+            from sprite_assets import draw
             draw("spark", self.x, self.y, 12, 12, self.max_vida - self.vida,
                  alpha=int(255 * self.vida / self.max_vida), loop=False)
 
@@ -65,7 +65,7 @@ class Casing:
         self.vy -= 330 * dt
 
     def draw(self):
-        from sprites_v6 import draw
+        from sprite_assets import draw
         draw("casing", self.x, self.y, 6, 6, age=.4-self.life, angle=35,
              alpha=int(255 * max(0, self.life) / 0.4))
 

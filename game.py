@@ -7,12 +7,12 @@ import arcade
 from actors import Jogador, Pontuacao, inicializar_banco
 from campaign import Campaign, Weapon, STAGES, WEAPONS
 from ui_fx import ScreenMotion
-from world_fx import Hazard, Barrel, draw_gun
+from world_fx import Hazard, Barrel
 from effects import Particula, TextoFlutuante, Casing, SpriteEcho
 from polish import TextPool, enemy_role
 from level_design import COVER_POSITIONS, ground_lane
 from sound import Audio
-from weapon_art import GunPose, RECOIL, FLASH_TIME, draw_weapon
+from weapon_art import GunPose, FLASH_TIME, draw_weapon
 from combat import Grenade, Impact, Cover, swept_contacts, draw_projectile, muzzle_flash
 from arcade_style import cabinet_overlay, pixel_text, ArcadeMenuScene, MILITARY, military_panel, ui_icon
 
@@ -45,7 +45,7 @@ class Bloco(arcade.Sprite):
         super().__init__(
             asset("bridge.png" if bridge else ("wall.png" if wall else "stone.png"))
         )
-        from sprites_v6 import texture
+        from sprite_assets import texture
         if not bridge:
             self.texture = texture("tile-wall" if wall else "tile-ground" if y <= 96 else "tile-platform")
         self.ballistic = ballistic
@@ -104,7 +104,7 @@ class Enemy(arcade.Sprite):
         self.original = self.texture
         self.flipped = self.texture.flip_left_right()
         self.color = self.base_color
-        from sprites_v6 import texture
+        from sprite_assets import texture
         if self.kind in ("boss", "drone"):
             self.texture = texture(self.kind)
         else:
@@ -161,7 +161,7 @@ class Enemy(arcade.Sprite):
                 self.center_x += math.sin(self.phase * 0.5) * pace
             self.center_x = max(self.low, min(self.high, self.center_x))
 
-        from sprites_v6 import texture
+        from sprite_assets import texture
         if self.kind == "boss":
             age = self.attack_age if self.attack_age < 8/11 else 0
             self.texture = texture("boss", age, loop=False, flip=self.direction != -1)
@@ -430,7 +430,7 @@ class TelaJogo(arcade.View):
         self.combo_time = 0.0
 
     def add_coin(self, x, y, special=False):
-        from sprites_v6 import texture
+        from sprite_assets import texture
         coin = arcade.Sprite(texture("insignia-hitbox"), scale=1.2 if special else 0.85)
         coin.texture = texture("insignia")
         coin.position = x, y
@@ -690,7 +690,7 @@ class TelaJogo(arcade.View):
         if self.firing:
             self.fire()
         for coin in self.coins:
-            from sprites_v6 import texture
+            from sprite_assets import texture
             coin.phase += dt * 3
             coin.texture = texture("insignia", self.run.time + coin.phase)
             coin.center_y = coin.base_y + math.sin(coin.phase) * 4
@@ -932,7 +932,7 @@ class TelaJogo(arcade.View):
         self.blocks.draw(pixelated=True)
         for cover in self.covers:
             cover.draw_fx(self.stage.theme, self.run.time)
-        from sprites_v6 import draw
+        from sprite_assets import draw
         for i, (x, y, w) in enumerate(self.stage.platforms):
             if i % 3 == 1:
                 draw("bridge", x, y + 10, w, 48, self.run.time)
@@ -1098,7 +1098,7 @@ class TelaJogo(arcade.View):
     def draw_exit(self):
         x = self.stage.length - 80
         ready = len(self.coins) <= self.total_coins - self.coin_goal
-        from sprites_v6 import draw
+        from sprite_assets import draw
         draw("flag", x + 26, 168, 66, 144, self.run.time,
              alpha=255 if ready else 130)
         text("SAÍDA", x - 24, 77, 12, GOLD, bold=True)
@@ -1840,9 +1840,9 @@ class GameWindow(arcade.Window):
             update_rate=1 / 60,
             vsync=True,
         )
-        from sprites_v6 import preload
+        from sprite_assets import preload
         preload()
-        self.ui_assets = {name: arcade.load_texture(asset("v5/" + name + ".png"))
+        self.ui_assets = {name: arcade.load_texture(asset("ui/" + name + ".png"))
                           for name in ("ammo", "armor", "repair", "crosshair")}
         self.audio = Audio()
         self.reduced_effects = False

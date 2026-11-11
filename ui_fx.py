@@ -103,7 +103,7 @@ class ScreenMotion:
         if self.shot:
             (tx, ty), remaining, duration = self.shot
             if not self.view.window.reduced_effects:
-                from sprites_v6 import draw
+                from sprite_assets import draw
                 elapsed = duration - remaining
                 if elapsed < .12:
                     t = elapsed / .12

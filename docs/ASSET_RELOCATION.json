@@ -1,0 +1,272 @@
+[
+  {
+    "before": "assets/v6/drone.png",
+    "after": "assets/sprites/drone.png",
+    "sha256": "796f0d1226a114e987cd938eea28b2979d23890a4e97f7ef73b73f1d56990096"
+  },
+  {
+    "before": "assets/v6/boss.png",
+    "after": "assets/sprites/boss.png",
+    "sha256": "66fd27e1ec4691e3379ac1e28109fd10f68ad3d5920adf1fd26ef5318a3b4c71"
+  },
+  {
+    "before": "assets/v6/weapon-glock.png",
+    "after": "assets/sprites/weapon-glock.png",
+    "sha256": "ba2fc7b3bfee66865b7b65529675c9968a01563112461e4e51088c5e70bef919"
+  },
+  {
+    "before": "assets/v6/weapon-ak.png",
+    "after": "assets/sprites/weapon-ak.png",
+    "sha256": "5ed187195835e073f63aac79ada81f2f1b6126aad89be1d8c29539a607f63437"
+  },
+  {
+    "before": "assets/v6/weapon-minigun.png",
+    "after": "assets/sprites/weapon-minigun.png",
+    "sha256": "ae30bb7b4e5be6d7a4b91da96946ba07cfeb869182f013e20b2fb38348792b6c"
+  },
+  {
+    "before": "assets/v6/explosion.png",
+    "after": "assets/sprites/explosion.png",
+    "sha256": "2fc9d02f00deb287dd7bcdd6d64cdc7547142f92e3341fda9a866f156d054945"
+  },
+  {
+    "before": "assets/v6/hit.png",
+    "after": "assets/sprites/hit.png",
+    "sha256": "3dd7c1eb161c0345634071d709598434f70ce75921c302ab0b193daea49010fb"
+  },
+  {
+    "before": "assets/v6/spark.png",
+    "after": "assets/sprites/spark.png",
+    "sha256": "670105f56072a82970bd730b5426f30f7dcd2bec615413a0afa7d76ad8355d7b"
+  },
+  {
+    "before": "assets/v8/cover.png",
+    "after": "assets/sprites/cover.png",
+    "sha256": "d78097bd666e05c0d9601343342d219d7e41396f2157c0943659fc7c2b90ccfc"
+  },
+  {
+    "before": "assets/v8/insignia.png",
+    "after": "assets/sprites/insignia.png",
+    "sha256": "1ff9bec435545499433aae056775aff35740eed8ae56e16aa0c68acb2bc81328"
+  },
+  {
+    "before": "assets/v6/jerrycan.png",
+    "after": "assets/sprites/jerrycan.png",
+    "sha256": "0f8de1d6f609a2540dd24c0e1089ad0077de1d5b344c10adbfb0a19e4fe95414"
+  },
+  {
+    "before": "assets/v6/mine.png",
+    "after": "assets/sprites/mine.png",
+    "sha256": "27f663b7a197af44ce79d3ad36d7a82f771ad06fb95fdfb537a3e62574eaae46"
+  },
+  {
+    "before": "assets/v6/emitter.png",
+    "after": "assets/sprites/emitter.png",
+    "sha256": "bb286167a34009dfcea6b71da0cf7655d2dfd5288e738d38c6eff2af345aa0bf"
+  },
+  {
+    "before": "assets/v6/grenade.png",
+    "after": "assets/sprites/grenade.png",
+    "sha256": "b82369b5c431ea5c153a2d6459dcfa41153af1d91a3b779c28cdd98254f4ee45"
+  },
+  {
+    "before": "assets/v6/spikes.png",
+    "after": "assets/sprites/spikes.png",
+    "sha256": "aa4efd43a5ce70f63dd1c6269926adacb30b60313bf7ec4122343c4510c050c3"
+  },
+  {
+    "before": "assets/v6/knife.png",
+    "after": "assets/sprites/knife.png",
+    "sha256": "6703570041bcfb59ed85214ddef8e390bd5d21035a63fbce10c1e618ef20036b"
+  },
+  {
+    "before": "assets/v6/tracer.png",
+    "after": "assets/sprites/tracer.png",
+    "sha256": "8e61e9039b02c85f4879c9d01d612c91b1452d31bfcb682698288e30f76619fe"
+  },
+  {
+    "before": "assets/v6/casing.png",
+    "after": "assets/sprites/casing.png",
+    "sha256": "9358b17d1b37dbe161ba26656824dbc05b7265767b7f2ef7de55f3669577080b"
+  },
+  {
+    "before": "assets/v6/laser-beam.png",
+    "after": "assets/sprites/laser-beam.png",
+    "sha256": "1042e6fdaa02bd2f4ef7d975b98956e7d91e4e012c8e595d83afdd05f9f0779a"
+  },
+  {
+    "before": "assets/v6/flag.png",
+    "after": "assets/sprites/flag.png",
+    "sha256": "d54765f86c445ebfedd850fa692effad218944a838c0a78ea53edaa87187ece2"
+  },
+  {
+    "before": "assets/v7/bridge.png",
+    "after": "assets/sprites/bridge.png",
+    "sha256": "165c0847ef8c4b0026c27b274ceeed842311e2f2694c127f6045462811417da9"
+  },
+  {
+    "before": "assets/v7/hostile-tracer.png",
+    "after": "assets/sprites/hostile-tracer.png",
+    "sha256": "21606809d0377432196b1e045f7daa25378ea99d417abe73c387cffbd3221700"
+  },
+  {
+    "before": "assets/v7/fighter-idle.png",
+    "after": "assets/sprites/fighter-idle.png",
+    "sha256": "517803ea5fab6ef527d49bc12deb2422a42c9175df4324867ca7f8c4da95507c"
+  },
+  {
+    "before": "assets/v7/fighter-walk.png",
+    "after": "assets/sprites/fighter-walk.png",
+    "sha256": "721f9e65313cc35985e7d4241048d0106d0ca77db9f5bc295c51db71e0fc9a2d"
+  },
+  {
+    "before": "assets/v7/fighter-aim.png",
+    "after": "assets/sprites/fighter-aim.png",
+    "sha256": "6c91d46446cac4daabed7b87289a8eef253a4879248968b96997a3845f713067"
+  },
+  {
+    "before": "assets/v7/fighter-fire.png",
+    "after": "assets/sprites/fighter-fire.png",
+    "sha256": "ee9d51f1c7d6ebe11948598489a10c80cdbd704ef08304e704171754171887ff"
+  },
+  {
+    "before": "assets/v8/tile-ground.png",
+    "after": "assets/sprites/tile-ground.png",
+    "sha256": "1758dd7827f301dfb1ec101326a906cd4efd0b0534b14006097399fd00faa8e8"
+  },
+  {
+    "before": "assets/v8/tile-platform.png",
+    "after": "assets/sprites/tile-platform.png",
+    "sha256": "1a4d7ffacb84fa3ee92cc3392e4bce7be7379f6f1e79a2a119358181e4bbfe62"
+  },
+  {
+    "before": "assets/v8/tile-wall.png",
+    "after": "assets/sprites/tile-wall.png",
+    "sha256": "81de61ed3b997db456c84f79461eaf9bd16768cedaccf0c72c8e914218d44a95"
+  },
+  {
+    "before": "assets/v6/insignia.png",
+    "after": "assets/sprites/insignia-hitbox.png",
+    "sha256": "cb61012f764019afddcd4684cdeb361e67299759d0e30d389f571658cddfe021"
+  },
+  {
+    "before": "assets/v5/commando.png",
+    "after": "assets/sprites/player.png",
+    "sha256": "4db7666af7a49cde7322d1d4e2d419d50fa04eacc128011306c2e6518a77a943"
+  },
+  {
+    "before": "assets/v5/ammo.png",
+    "after": "assets/ui/ammo.png",
+    "sha256": "9c8065c8353350547bddcd859fcac2999eed4b1b205720f3e8b3f5c22aab8950"
+  },
+  {
+    "before": "assets/v5/armor.png",
+    "after": "assets/ui/armor.png",
+    "sha256": "577c262b147067d7e659795a1f5fe65b9dbf176c3d939542b4b59f7b0065e967"
+  },
+  {
+    "before": "assets/v5/repair.png",
+    "after": "assets/ui/repair.png",
+    "sha256": "b66e5749405d9305a58e989629d552365655c507e045e262f3e6f778c79a1f4c"
+  },
+  {
+    "before": "assets/v5/crosshair.png",
+    "after": "assets/ui/crosshair.png",
+    "sha256": "ca98910adeb2969ac886e804a03672a064ad6b2c26cdfb72fd4d6178b694dc14"
+  },
+  {
+    "before": "assets/boom_v4.wav",
+    "after": "assets/audio/boom_v4.wav",
+    "sha256": "2488c4b2ab4ce4c5582843a23e1b799a03b8570ba9f3c28ae54c8c1bd863ed5d"
+  },
+  {
+    "before": "assets/clear.wav",
+    "after": "assets/audio/clear.wav",
+    "sha256": "4ec481a663683007d27099c124a55cb527e0a6c35c3766d88e4173ac709c6d81"
+  },
+  {
+    "before": "assets/coin_v4.wav",
+    "after": "assets/audio/coin_v4.wav",
+    "sha256": "d625fbd39a3af41c612b7bc3ee9a87c4cc08312183f255f2725de755c0d32403"
+  },
+  {
+    "before": "assets/damage.wav",
+    "after": "assets/audio/damage.wav",
+    "sha256": "50ca5a6c46fa78a352a0828c58602cfd2f75a5e42a856c2fc369502fd3b934ed"
+  },
+  {
+    "before": "assets/dash.wav",
+    "after": "assets/audio/dash.wav",
+    "sha256": "5417e54d551d721af41a0f8f22fc7077ef714c3e32d8a114b2a234eb2ef26d48"
+  },
+  {
+    "before": "assets/defeat.wav",
+    "after": "assets/audio/defeat.wav",
+    "sha256": "82a6f5209a576e7153f86e224c3ea9973ecbf0e2be364f678fb821a4030b1fc0"
+  },
+  {
+    "before": "assets/impact.wav",
+    "after": "assets/audio/impact.wav",
+    "sha256": "f9906abc4c901dad3ed87d00eed8da20affb614003cd35f10278442eb12b3584"
+  },
+  {
+    "before": "assets/jump.wav",
+    "after": "assets/audio/jump.wav",
+    "sha256": "7faa15a19ebb0d2e862c44bbc96aed09acb0894fd97086102065b2e5084573b8"
+  },
+  {
+    "before": "assets/land.wav",
+    "after": "assets/audio/land.wav",
+    "sha256": "ff36ec097814eaaa3f96660e89985b6b80755a9daebde5d69ddb07cd90619dfe"
+  },
+  {
+    "before": "assets/menu.wav",
+    "after": "assets/audio/menu.wav",
+    "sha256": "63045c58944d54e78ee75d3e6a21b3664f369a574325cf1902611330608d1b20"
+  },
+  {
+    "before": "assets/reload_v4.wav",
+    "after": "assets/audio/reload_v4.wav",
+    "sha256": "1e6734fab53afe5c674ac51c4252a64c14df3bba6ece7dec7855f2ee3b79b94b"
+  },
+  {
+    "before": "assets/shot_ak.wav",
+    "after": "assets/audio/shot_ak.wav",
+    "sha256": "e8ed8b71e6fc5c5fb167acf24c68375fb0060430a5132497ee3713e3b29946db"
+  },
+  {
+    "before": "assets/shot_rifle.wav",
+    "after": "assets/audio/shot_rifle.wav",
+    "sha256": "1107466fb454ff90d11a459f836e0968b925ae697e0a95a35f5e5637772ebb01"
+  },
+  {
+    "before": "assets/shot_shotgun.wav",
+    "after": "assets/audio/shot_shotgun.wav",
+    "sha256": "b859b14a0d49395452d3f8fc99c8d26e746a983cf0efccd9e9a7793ae2852504"
+  },
+  {
+    "before": "assets/shot_smg.wav",
+    "after": "assets/audio/shot_smg.wav",
+    "sha256": "f213eed8c7e54911c9656ecc157595bebe83e51e13ee9e27d61493e4c3bbd61a"
+  },
+  {
+    "before": "assets/victory.wav",
+    "after": "assets/audio/victory.wav",
+    "sha256": "146c975c3004136d68456d85218190f62f250bd9e49a2a8c49c45afe5a28bf0a"
+  },
+  {
+    "before": "assets/v6/menu-march.wav",
+    "after": "assets/audio/menu-march.wav",
+    "sha256": "e1e66a83633880a75eff951dffc2ea66eb8bbecbc1365c7aede77fb5941b4c3c"
+  },
+  {
+    "before": "assets/v6/shot-glock.wav",
+    "after": "assets/audio/shot-glock.wav",
+    "sha256": "f6e5d527f597df136e0a07fe43a90e8f9b3c5848bdf6ad0b39b048b94612c04a"
+  },
+  {
+    "before": "assets/v6/shot-minigun.wav",
+    "after": "assets/audio/shot-minigun.wav",
+    "sha256": "4c02f07e8138602559763ce68fcfc901ee174d6556a93bbf35f8743e13b017b7"
+  }
+]

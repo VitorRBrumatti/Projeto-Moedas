@@ -2,7 +2,6 @@
 
 import math
 import arcade
-from weapon_art import TRAILS, COLORS
 
 
 class Grenade(arcade.SpriteSolidColor):
@@ -43,7 +42,7 @@ class Grenade(arcade.SpriteSolidColor):
         return False
 
     def draw_fx(self):
-        from sprites_v6 import draw
+        from sprite_assets import draw
         draw("grenade", *self.position, 18, 22, self.age)
         if self.grounded:
             arcade.draw_circle_outline(*self.position, 72, (255, 126, 58, 180), 2)
@@ -62,14 +61,14 @@ class Impact:
         self.life -= dt
 
     def draw(self):
-        from sprites_v6 import draw
+        from sprite_assets import draw
         draw("explosion" if self.explosion else "hit", self.x, self.y,
              190 if self.explosion else 45, 190 if self.explosion else 45,
              self.age, loop=False)
 
 
 def draw_projectile(bullet):
-    from sprites_v6 import draw
+    from sprite_assets import draw
     draw("knife" if bullet.knife else "hostile-tracer" if bullet.hostile else "tracer", *bullet.position,
          28 if bullet.knife else 32 if bullet.hostile else 20,
          24 if bullet.knife else 12 if bullet.hostile else 7,
@@ -77,7 +76,7 @@ def draw_projectile(bullet):
 
 
 def muzzle_flash(x, y, angle, kind="glock"):
-    from sprites_v6 import draw
+    from sprite_assets import draw
     from weapon_art import FLASH_TIME
     remaining = getattr(arcade.get_window().current_view, "muzzle", 0)
     age = max(0, 1 - remaining / FLASH_TIME[kind]) * .3
@@ -89,7 +88,7 @@ class Cover(arcade.SpriteSolidColor):
 
     def __init__(self, x, floor=96):
         super().__init__(36, 48, color=(67, 86, 96))
-        from sprites_v6 import texture
+        from sprite_assets import texture
         self.texture = texture("cover")
         self.left = x
         self.bottom = floor
@@ -97,7 +96,7 @@ class Cover(arcade.SpriteSolidColor):
         self.is_cover = True
 
     def draw_fx(self, theme="jungle", clock=0):
-        from sprites_v6 import draw
+        from sprite_assets import draw
         draw("cover", self.center_x, self.center_y, self.width, self.height, clock)
 
 

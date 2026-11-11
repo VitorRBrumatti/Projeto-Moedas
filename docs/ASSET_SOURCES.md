@@ -1,5 +1,9 @@
 # Coin Commando — fontes e licenças dos assets
 
+> Registro histórico de produção. Caminhos atuais e hashes: `assets/sources.json`;
+> versões/fontes preservadas em `assets/archive/`; mapa em `docs/ASSET_RELOCATION.json`.
+> Changelogs V5–V8 agora ficam em `docs/history/`.
+
 Os arquivos originais estão na pasta pai do projeto. As cópias usadas para
 inventário ficam em `_audit_workspace/`; elas são apenas material de trabalho.
 

@@ -6,7 +6,7 @@ import arcade
 from models import BaseModel, Pontuacao, banco, inicializar_banco
 
 BASE = Path(__file__).resolve().parent
-ARQUIVO_SPRITESHEET = "assets/v5/commando.png"
+ARQUIVO_SPRITESHEET = "assets/sprites/player.png"
 LARGURA_FRAME, ALTURA_FRAME = 96, 128
 COLUNAS_SPRITESHEET, TOTAL_FRAMES = 10, 10
 TEMPO_POR_FRAME = 0.1

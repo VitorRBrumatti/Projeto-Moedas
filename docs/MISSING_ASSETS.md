@@ -1,5 +1,8 @@
 # Coin Commando — assets que realmente faltam
 
+> Histórico de produção preservado. Estrutura atual: `assets/README.md` e
+> `docs/README.md`. Arquivos V5–V8 ficam em `assets/archive/`; relatórios, em `docs/history/`.
+
 Esta lista contém somente arte que não tem substituto adequado nos pacotes
 locais. Itens com candidato utilizável, mesmo exigindo recorte ou adaptação,
 ficaram fora e estão em [ASSET_AUDIT.md](./ASSET_AUDIT.md).

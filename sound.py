@@ -31,14 +31,14 @@ class Audio:
         ):
             try:
                 self.sounds[name] = arcade.load_sound(
-                    str(Path(__file__).parent / "assets" / f"{name}.wav")
+                    str(Path(__file__).parent / "assets/audio" / f"{name}.wav")
                 )
             except Exception:
                 pass
 
         for name, filename in (("march", "menu-march"), ("shot_glock", "shot-glock"), ("shot_minigun", "shot-minigun")):
             try:
-                self.sounds[name] = arcade.load_sound(str(Path(__file__).parent / "assets/v6" / (filename + ".wav")))
+                self.sounds[name] = arcade.load_sound(str(Path(__file__).parent / "assets/audio" / (filename + ".wav")))
             except Exception:
                 pass
 

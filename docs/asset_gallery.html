@@ -1,66 +1,9 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coin Commando — candidatos de assets</title>
-  <style>
-    :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #101820; color: #e8f0df; }
-    body { max-width: 1180px; margin: 0 auto; padding: 28px; }
-    h1 { color: #ffda65; } h2 { margin-top: 34px; color: #9bd3c7; }
-    .note { color: #b8c5bd; max-width: 850px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
-    figure { margin: 0; padding: 10px; background: #192833; border: 1px solid #38515b; min-height: 180px; }
-    img { display: block; width: 100%; height: 130px; object-fit: contain; image-rendering: pixelated; background: #0b1118; }
-    figcaption { margin-top: 9px; font-size: 13px; line-height: 1.35; color: #d7e3d1; overflow-wrap: anywhere; }
-    .tag { color: #ffda65; font-weight: 700; }
-  </style>
-</head>
-<body>
-  <h1>Coin Commando — galeria local de candidatos</h1>
-  <p class="note">Página estática para comparação. As imagens vêm de
-    <code>_audit_workspace/</code> e dos assets atuais; nenhum arquivo é
-    copiado para a pasta de execução. Abra este HTML a partir do repositório
-    para preservar os caminhos relativos.</p>
-
-  <h2>Personagens e inimigos — adaptar</h2>
-  <div class="grid">
-    <figure><img src="../_audit_workspace/Sprites/Army%20Soldier%20Sprites/PNG%20Sprites/Run0000.png" alt="soldado run"><figcaption><span class="tag">ADAPTAR</span> Army Soldier — Run0000, 250x250</figcaption></figure>
-    <figure><img src="../_audit_workspace/Sprites/Army%20Soldier%20Sprites/PNG%20Sprites/Idle0000.png" alt="soldado idle"><figcaption><span class="tag">ADAPTAR</span> Army Soldier — Idle0000, 250x250</figcaption></figure>
-    <figure><img src="../_audit_workspace/Sprites/Terrorist%20Sprites/PNG%20Sprites/run/enemy02_run_00.png" alt="terrorista run"><figcaption><span class="tag">ADAPTAR</span> Terrorist — run, 246x297</figcaption></figure>
-    <figure><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png" alt="inimigo armado"><figcaption><span class="tag">ADAPTAR</span> Generic Run 'n Gun — ARMob strip</figcaption></figure>
-    <figure><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/RPGmob.png" alt="inimigo RPG"><figcaption><span class="tag">ADAPTAR</span> Generic Run 'n Gun — RPGMob strip</figcaption></figure>
-    <figure><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png" alt="inimigo sniper"><figcaption><span class="tag">ADAPTAR</span> Generic Run 'n Gun — SniperMob strip</figcaption></figure>
-  </div>
-
-  <h2>Ambiente e veículos — adaptar</h2>
-  <div class="grid">
-    <figure><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_1/Background/subway_BG.png" alt="fundo metrô"><figcaption><span class="tag">ADAPTAR</span> Subway background, 496x272</figcaption></figure>
-    <figure><img src="../_audit_workspace/Pixel%20Art%20-%20City%20Landscape%20V2/Pixel%20Art%20-%20City%20Landscape%20V2/Buildings%201.png" alt="prédios"><figcaption><span class="tag">ADAPTAR</span> City Landscape — buildings</figcaption></figure>
-    <figure><img src="../_audit_workspace/vista-ten-1.0.0/vista-ten/tundra/tundra.png" alt="tundra"><figcaption><span class="tag">ADAPTAR</span> vista-ten — tundra, 384x216</figcaption></figure>
-    <figure><img src="../_audit_workspace/helicopter/helicopter.png" alt="helicóptero"><figcaption><span class="tag">ADAPTAR</span> Helicopter sheet, 768x32</figcaption></figure>
-    <figure><img src="../_audit_workspace/kenney_tanksPack/PNG/Default%20size/tanks_tankGreen1.png" alt="tanque"><figcaption><span class="tag">ADAPTAR</span> Kenney Tanks — tank, 86x68</figcaption></figure>
-    <figure><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_1/Tileset/Subway_tiles.png" alt="tileset metrô"><figcaption><span class="tag">ADAPTAR</span> Subway tiles, 400x400</figcaption></figure>
-  </div>
-
-  <h2>Props, mira e efeitos — prontos/adaptáveis</h2>
-  <div class="grid">
-    <figure><img src="../_audit_workspace/kenney_tanksPack/PNG/Default%20size/tanks_mineOn.png" alt="mina"><figcaption><span class="tag">ADAPTAR</span> Kenney mine, 36x14</figcaption></figure>
-    <figure><img src="../_audit_workspace/kenney_tanksPack/PNG/Default%20size/tank_explosion1.png" alt="explosão"><figcaption><span class="tag">ADAPTAR</span> Kenney explosion frame</figcaption></figure>
-    <figure><img src="../assets/coin.png" alt="moeda atual"><figcaption><span class="tag">MANTER</span> Coin Commando coin, 27x27</figcaption></figure>
-    <figure><img src="../assets/player.png" alt="spritesheet atual"><figcaption><span class="tag">MANTER</span> Player sheet, 960x128 — 10x 96x128</figcaption></figure>
-    <figure><img src="../assets/guard.png" alt="guarda atual"><figcaption><span class="tag">MANTER</span> Guard atual, 96x128</figcaption></figure>
-    <figure><img src="../_audit_workspace/kenney_crosshair-pack/PNG/Light/crosshair-000.png" alt="crosshair"><figcaption><span class="tag">PRONTO</span> Kenney Crosshair frame</figcaption></figure>
-  </div>
-</body>
-</html>
-
-<p><a href="evidence/v5-a/gallery.html">V5-A: integração real e antes/depois do menu</a></p>
-
-<p><a href="evidence/v5-b/gallery.html">V5-B: menus, HUD e sprites Kenney integrados</a></p>
-
-<p><a href="evidence/v6/gallery.html">V6: sprites animados, arsenal e Iron Commander</a></p>
-
-<p><a href="evidence/v7/gallery.html">V7 — correções de inimigos, balas, menu e ponte</a></p>
-
-<p><a href="evidence/v8/gallery.html">V8 — fullscreen, caixa/plataformas e contraste</a></p>
+<!doctype html><meta charset="utf-8"><title>Coin Commando — galeria</title>
+<style>body{background:#171d17;color:#e0d2aa;font:18px system-ui;margin:32px}a{color:#efbc41}li{margin:14px}</style>
+<h1>Coin Commando — evidências visuais</h1><p>Capturas de QA não substituem uma partida humana.</p>
+<ul><li><a href="evidence/current/gallery.html">Versão atual — capturas após a organização</a></li>
+<li><a href="evidence/v8/gallery.html">V8 — fullscreen, plataformas e insígnias</a></li>
+<li><a href="evidence/v7/gallery.html">V7 — inimigos e projéteis</a></li>
+<li><a href="evidence/v6/gallery.html">V6 — arsenal e Iron Commander</a></li>
+<li><a href="evidence/v5-b/gallery.html">V5-B — menus e HUD</a></li>
+<li><a href="evidence/v5-a/gallery.html">V5-A — antes/depois</a></li></ul>

@@ -1,6 +1,5 @@
 """Apresentação em slots de texto reutilizáveis e sinais visuais dos inimigos."""
 
-import math
 import arcade
 
 

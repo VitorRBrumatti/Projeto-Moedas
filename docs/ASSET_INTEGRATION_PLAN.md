@@ -1,5 +1,8 @@
 # Sprint V5-A — integração e direção para V5-B
 
+> Histórico de produção preservado. Estrutura atual: `assets/README.md` e
+> `docs/README.md`. Arquivos V5–V8 ficam em `assets/archive/`; relatórios, em `docs/history/`.
+
 ## Escopo executado em 10/11/2026
 1. Baseline preservado: patch/status em `docs/evidence/v5-a/` (game.py e teste já modificados).
 2. Inspeção Pillow e visual dos três PNGs, contact sheet e hashes.

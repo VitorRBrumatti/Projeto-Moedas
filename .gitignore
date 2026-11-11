@@ -4,7 +4,7 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-.venv/
+.venv*/
 venv/
 env/
 
@@ -35,3 +35,9 @@ dist/
 _audit_workspace/
 
 assets/_staging_v5/
+
+# Local production sources and retired tool snapshots
+assets/archive/
+docs/history/tool-snapshots/
+*.rar
+*.7z
