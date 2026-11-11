@@ -1,0 +1,17 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________ test_v5b_ui_assets_preloaded_and_shop_keeps_economy _____________
+
+window = GameWindow=(width=960, height=640)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000025A6EB40770>
+
+    def test_v5b_ui_assets_preloaded_and_shop_keeps_economy(window, monkeypatch):
+        from game import TelaMenu, TelaLoja
+>       assert {"ammo", "armor", "repair", "crosshair"} <= window.ui_assets.keys()
+                                                           ^^^^^^^^^^^^^^^^
+E       AttributeError: 'GameWindow' object has no attribute 'ui_assets'
+
+tests\test_arcade_v3.py:217: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/test_arcade_v3.py::test_v5b_ui_assets_preloaded_and_shop_keeps_economy
+1 failed in 0.64s

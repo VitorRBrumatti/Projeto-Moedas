@@ -9,6 +9,8 @@ class Audio:
         self.muted = False
         self.sounds = {}
         self.players = []
+        self.music_player = None
+        self.music_requested = False
         for name in (
             "jump",
             "clear",
@@ -34,6 +36,28 @@ class Audio:
             except Exception:
                 pass
 
+        for name, filename in (("march", "menu-march"), ("shot_glock", "shot-glock"), ("shot_minigun", "shot-minigun")):
+            try:
+                self.sounds[name] = arcade.load_sound(str(Path(__file__).parent / "assets/v6" / (filename + ".wav")))
+            except Exception:
+                pass
+
+    def start_menu_music(self):
+        self.music_requested = True
+        if self.muted or self.music_player or "march" not in self.sounds:
+            return
+        try:
+            self.music_player = arcade.play_sound(self.sounds["march"], volume=.22, loop=True)
+        except Exception:
+            self.music_player = None
+
+    def stop_menu_music(self):
+        self.music_requested = False
+        if self.music_player:
+            self.music_player.pause()
+            self.music_player.delete()
+            self.music_player = None
+
     def play(self, name):
         if self.muted or name not in self.sounds:
             return
@@ -57,6 +81,14 @@ class Audio:
     def toggle(self):
         self.muted = not self.muted
         if self.muted:
+            if self.music_player:
+                self.music_player.pause()
             for p in self.players:
                 p.pause()
             self.players.clear()
+
+        elif self.music_requested:
+            if self.music_player:
+                self.music_player.play()
+            else:
+                self.start_menu_music()

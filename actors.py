@@ -1,11 +1,12 @@
 """Jogador e sua máquina de estados: pulo > idle > caminhada."""
 
 from pathlib import Path
+from functools import lru_cache
 import arcade
 from models import BaseModel, Pontuacao, banco, inicializar_banco
 
 BASE = Path(__file__).resolve().parent
-ARQUIVO_SPRITESHEET = "assets/player.png"
+ARQUIVO_SPRITESHEET = "assets/v5/commando.png"
 LARGURA_FRAME, ALTURA_FRAME = 96, 128
 COLUNAS_SPRITESHEET, TOTAL_FRAMES = 10, 10
 TEMPO_POR_FRAME = 0.1
@@ -20,17 +21,25 @@ def garantir_spritesheet_jogador():
         raise FileNotFoundError("Assets ausentes. Extraia a pasta completa do jogo.")
 
 
+@lru_cache(maxsize=1)
+def player_frames():
+    folha = arcade.load_spritesheet(asset(ARQUIVO_SPRITESHEET))
+    return folha.get_texture_grid(size=(LARGURA_FRAME, ALTURA_FRAME),
+                                  columns=COLUNAS_SPRITESHEET, count=TOTAL_FRAMES)
+
+
+@lru_cache(maxsize=1)
+def original_collision_frame():
+    folha = arcade.load_spritesheet(asset("assets/player.png"))
+    return folha.get_texture_grid(size=(96, 128), columns=10, count=1)[0]
+
+
 class Jogador(arcade.Sprite):
     DIREITA, ESQUERDA = 1, -1
 
     def __init__(self):
         garantir_spritesheet_jogador()
-        folha = arcade.load_spritesheet(asset(ARQUIVO_SPRITESHEET))
-        quadros = folha.get_texture_grid(
-            size=(LARGURA_FRAME, ALTURA_FRAME),
-            columns=COLUNAS_SPRITESHEET,
-            count=TOTAL_FRAMES,
-        )
+        quadros = player_frames()
         self.textura_idle_direita = quadros[0]
         self.textura_pulo_direita = quadros[1]
         self.texturas_andando_direita = quadros[2:10]
@@ -39,7 +48,9 @@ class Jogador(arcade.Sprite):
         self.texturas_andando_esquerda = [
             t.flip_left_right() for t in self.texturas_andando_direita
         ]
-        super().__init__(self.textura_idle_direita, scale=0.55)
+        # Preserve the original collision polygon independently of the new artwork.
+        super().__init__(original_collision_frame(), scale=0.55)
+        self.texture = self.textura_idle_direita
         self.grounded = None
         self.aim_facing = None
         self.virado_para = self.DIREITA

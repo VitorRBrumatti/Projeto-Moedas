@@ -185,7 +185,7 @@ def test_mouse_menu_hover_and_delayed_shot_selection(window):
     assert b.hover > 0
     v.on_mouse_press(x + 20, y + 20, arcade.MOUSE_BUTTON_LEFT, 0)
     assert v.ui.shot and window.current_view is v
-    for _ in range(20):
+    for _ in range(100):
         v.on_update(1 / 60)
     assert isinstance(window.current_view, TelaLoja)
 
@@ -199,7 +199,7 @@ def test_mouse_aim_is_world_relative_and_knife_spends_stock(window):
     bullet = list(v.bullets)[-1]
     assert bullet.change_y > 0
     assert bullet.change_x > 0
-    v.run.wallet = 50
+    v.run.wallet = 500
     v.run.buy("knives")
     v.on_key_press(arcade.key.T, 0)
     assert v.run.knives == 4
@@ -211,18 +211,18 @@ def test_shop_freezes_game_and_preserves_inventory(window):
 
     v = TelaJogo()
     window.show_view(v)
-    v.run.wallet = 100
+    v.run.wallet = 1000
     v.held.add(arcade.key.D)
     v.firing = True
     v.open_shop()
     shop = window.current_view
     assert isinstance(shop, TelaLoja) and not v.held and not v.firing
     clock = v.run.time
-    shop.purchase("shotgun")
+    shop.purchase("ak")
     shop.on_update(0.1)
-    assert v.run.time == clock and v.run.equipped == "shotgun"
+    assert v.run.time == clock and v.run.equipped == "ak"
     shop.resume()
-    assert window.current_view is v and v.weapon.kind == "shotgun"
+    assert window.current_view is v and v.weapon.kind == "ak"
 
 
 def test_hazards_warn_before_activation_and_mines_explode_once(window):
@@ -306,6 +306,6 @@ def test_pause_menu_click_animates_without_advancing_game(window):
     v.on_mouse_motion(400, 305, 0, 0)
     v.on_mouse_press(400, 305, arcade.MOUSE_BUTTON_LEFT, 0)
     assert v.pause_ui.shot
-    for _ in range(20):
+    for _ in range(100):
         v.on_update(1 / 60)
     assert not v.paused and v.run.time >= clock

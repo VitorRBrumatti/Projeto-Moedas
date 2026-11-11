@@ -2,7 +2,7 @@
 
 Jogo de ação e plataforma 2D feito com Python Arcade para a atividade de Programação Orientada a Objetos do IFPR — Campus Paranavaí.
 
-Quatro fases em ambientes diferentes, mira livre, AK-47, armas e melhorias na loja, drones com granadas, chefe final e ranking local. Interface com animações, efeitos e filtro de fliperama.
+Quatro fases em ambientes diferentes, mira livre, Glock-18, AK47, Minigun e melhorias por arma na loja, drones com granadas, chefe final e ranking local. Interface com animações, efeitos e filtro de fliperama.
 
 ## Requisitos
 
@@ -14,10 +14,20 @@ Quatro fases em ambientes diferentes, mira livre, AK-47, armas e melhorias na lo
 No Windows, dentro da pasta do projeto:
 
 ```powershell
-py -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe main.py
 ```
+
+No Git Bash do Windows, o ambiente único é `.venv` (Python 3.13):
+
+```bash
+source .venv/Scripts/activate
+python main.py
+```
+
+Sem ativar o ambiente, também funciona: `./.venv/Scripts/python.exe main.py`.
+Depois de recriar o ambiente, reative-o em terminais que já estavam abertos.
 
 No Linux/macOS:
 
@@ -40,10 +50,11 @@ Mantenha a pasta `assets` junto aos arquivos Python. O banco `ranking.db` é cri
 | R durante a partida | Recarregar |
 | T | Lançar faca comprada na loja |
 | Shift | Dash |
-| 1–4 | Equipar arma adquirida |
+| 1–3 | Equipar arma adquirida |
 | B | Loja no início ou perto da saída |
 | P/Esc | Pausar/retomar |
 | M na pausa | Voltar ao menu |
+| F11 | Alternar tela cheia |
 | F8 | Alternar som |
 | F9 | Reduzir efeitos de tela |
 | R no menu ou resultado | Abrir ranking |
@@ -80,3 +91,20 @@ O projeto utiliza `PhysicsEnginePlatformer` e `can_jump()`, `Bloco` derivado de 
 As imagens foram geradas para o projeto e adaptadas para o motor; os efeitos sonoros foram sintetizados localmente. A validação automatizada não substitui testar áudio e sensação de combate no computador de apresentação.
 
 Desenvolvido por **Vitor Rufino Brumatti — 3º Info / IFPR**.
+
+## Arsenal V6
+Glock-18 inicial (mobilidade alta), AK47 (120 créditos, dano alto e recoil) e
+Minigun (280 créditos, cadência extrema e mobilidade menor). Dano e cadência são
+upgrades exclusivos da arma equipada; Minigun não recebe upgrade de cadência.
+Insígnias substituem a arte das moedas: continuam +1 comum / +5 especial na
+pontuação. Créditos: +1/+5 por insígnia, +2 por abate, +25 ao concluir setores
+intermediários, +50 pelo boss. Menu tem marcha e explosão antes de confirmar;
+F8 silencia, F9 reduz efeitos. Chefão: arena final sem plataformas, 460 de vida,
+rajadas, morteiros e cargas no chão. Minas podem ser detonadas por tiros.
+
+## Ajustes V8
+AK47 dispara a cada0,11s; Glock a cada0,32s. Recuo e dispersão removidos, mira da
+arena estabilizada. F11 ou Opções alterna tela cheia com proporção preservada.
+Plataformas e caixas têm arte militar; insígnias ganharam contraste.
+O ranking foi limpo a pedido, com backup local ignorado pelo Git. Detalhes em
+docs/V8_CORRECOES.md. Port mobile ainda não iniciado.

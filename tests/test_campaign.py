@@ -5,16 +5,15 @@ def test_magazine_cooldown_and_reload():
     gun = Weapon()
     assert gun.fire()
     assert not gun.fire()
-    for _ in range(29):
-        gun.update(0.11)
+    for _ in range(gun.capacity - 1):
+        gun.update(gun.spec.interval + .01)
         assert gun.fire()
-    assert gun.ammo == 0
+    assert gun.ammo == 0 and not gun.fire()
+    assert gun.reload()
+    gun.update(gun.spec.reload_time - .01)
     assert not gun.fire()
-    gun.reload()
-    gun.update(1)
-    assert not gun.fire()
-    gun.update(0.5)
-    assert gun.ammo == 30 and gun.fire()
+    gun.update(.02)
+    assert gun.ammo == gun.capacity and gun.fire()
 
 
 def test_progression_and_final_completion():

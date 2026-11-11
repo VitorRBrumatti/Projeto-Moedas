@@ -1,0 +1,60 @@
+....................................F....F...........................    [100%]
+================================== FAILURES ===================================
+_________________ test_piercing_damages_each_target_only_once _________________
+
+window = GameWindow=(width=960, height=640)
+
+    def test_piercing_damages_each_target_only_once(window):
+        from game import Bullet, Enemy
+    
+        v = TelaJogo()
+        window.show_view(v)
+        v.enemies.clear()
+        enemy = Enemy(220, 140, "boss", 0)
+        v.enemies.append(enemy)
+        v.bullets.append(Bullet(220, 140, 0, 0, damage=4, pierce=2))
+        hp = enemy.hp
+        for _ in range(12):
+            v.on_update(1 / 60)
+>       assert enemy.hp == hp - 4
+E       assert 460 == (460 - 4)
+E        +  where 460 = <game.Enemy object at 0x000001B222807D40>.hp
+
+tests\test_runtime.py:258: AssertionError
+______ test_sweep_orders_thin_targets_and_cover_without_duplicate_damage ______
+
+window = GameWindow=(width=960, height=640)
+
+    def test_sweep_orders_thin_targets_and_cover_without_duplicate_damage(window):
+        from combat import Cover
+    
+        v = scene(window)
+        v.ballistic.clear()
+        a = Enemy(210, 220, "boss", 0)
+        b = Enemy(280, 220, "boss", 0)
+        a.width = b.width = 10
+        a.speed = b.speed = 0
+        v.enemies.extend([b, a])
+        cover = Cover(320, 190)
+        v.ballistic.append(cover)
+        shot = Bullet(140, 220, 280, 0, damage=4, pierce=3)
+        v.bullets.append(shot)
+        v.on_update(1 / 60)
+>       assert a.hp == 456 and b.hp == 456 and shot not in v.bullets
+E       assert (460 == 456)
+E        +  where 460 = <game.Enemy object at 0x000001B227F05220>.hp
+
+tests\test_v4.py:76: AssertionError
+============================== warnings summary ===============================
+tests/test_arcade_v3.py::test_all_combat_effects_render_with_live_projectiles
+tests/test_arcade_v3.py::test_v5b_ui_assets_preloaded_and_shop_keeps_economy
+tests/test_runtime.py::test_real_render_and_physics
+tests/test_runtime.py::test_text_save_once_and_ranking_snapshot
+  Z:\ProjetoHermesJogo\Projeto-Moedas\.venv\Lib\site-packages\arcade\exceptions.py:138: PerformanceWarning: draw_text is an extremely slow function for displaying text. Consider using Text objects instead.
+    warnings.warn(message, warning_type)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_runtime.py::test_piercing_damages_each_target_only_once - a...
+FAILED tests/test_v4.py::test_sweep_orders_thin_targets_and_cover_without_duplicate_damage
+2 failed, 67 passed, 4 warnings in 11.09s

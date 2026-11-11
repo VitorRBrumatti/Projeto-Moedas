@@ -1,0 +1,43 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+___________ test_boss_aim_is_stable_without_camera_shake_or_recoil ____________
+
+window = GameWindow=(width=960, height=640)
+
+    def test_boss_aim_is_stable_without_camera_shake_or_recoil(window):
+        from campaign import Campaign
+        run = Campaign()
+        run.stage = 3
+        game = TelaJogo(run)
+        window.show_view(game)
+        game.boss_introduced = True
+        game.player.position = (3300, 130)
+        game.mouse_aim = True
+        # Pointer close to body used to flip the pivot based on the previous angle.
+        game.mouse = (265, 133)
+        game.camera_shake = (4, -4)
+        angles = []
+        for _ in range(8):
+            game.aim()
+            angles.append(game.aim_angle)
+        assert max(angles) - min(angles) < .00001
+        game.fire()
+>       assert game.recoil == 0
+E       assert 1.1 == 0
+E        +  where 1.1 = <game.TelaJogo object at 0x0000018B2061AE40>.recoil
+
+tests\test_arcade_v3.py:428: AssertionError
+_____________ test_letterbox_mouse_coordinates_match_logical_view _____________
+
+window = GameWindow=(width=960, height=640)
+
+    def test_letterbox_mouse_coordinates_match_logical_view(window):
+>       viewport = window.content_viewport(1920, 1080)
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'GameWindow' object has no attribute 'content_viewport'
+
+tests\test_arcade_v3.py:432: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/test_arcade_v3.py::test_boss_aim_is_stable_without_camera_shake_or_recoil
+FAILED tests/test_arcade_v3.py::test_letterbox_mouse_coordinates_match_logical_view
+2 failed in 0.62s

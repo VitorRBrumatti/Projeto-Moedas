@@ -1,0 +1,41 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+__________________ test_guard_stops_to_aim_with_planted_feet __________________
+
+window = GameWindow=(width=960, height=640)
+
+    def test_guard_stops_to_aim_with_planted_feet(window):
+        from game import Enemy
+        from sprites_v6 import texture
+        game = TelaJogo()
+        window.show_view(game)
+        guard = Enemy(450, 130, "guard", 0, 300, 600)
+        guard.aim_time = .3
+        guard.direction = -1
+        guard.shot_clock = 1
+        old_x = guard.center_x
+        guard.tick(1/60, game.player)
+>       assert guard.center_x == old_x
+E       assert 448.3 == 450
+E        +  where 448.3 = <game.Enemy object at 0x000001C79A94C140>.center_x
+
+tests\test_arcade_v3.py:387: AssertionError
+____________________ test_menu_bomb_finishes_before_action ____________________
+
+window = GameWindow=(width=960, height=640)
+
+    def test_menu_bomb_finishes_before_action(window):
+        from game import TelaMenu
+        menu = TelaMenu()
+        window.show_view(menu)
+        calls = []
+        menu.ui.buttons[0].action = lambda: calls.append(True)
+        menu.ui.trigger("play")
+>       assert menu.ui.pending[0] == .85
+E       assert 1.65 == 0.85
+
+tests\test_arcade_v3.py:284: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_arcade_v3.py::test_guard_stops_to_aim_with_planted_feet - a...
+FAILED tests/test_arcade_v3.py::test_menu_bomb_finishes_before_action - asser...
+2 failed in 1.22s

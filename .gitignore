@@ -28,3 +28,10 @@ dist/
 *.zip
 *.log
 .superpowers/
+
+# Local ranking snapshots, never publish
+.local-backups/
+
+_audit_workspace/
+
+assets/_staging_v5/

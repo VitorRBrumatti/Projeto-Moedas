@@ -3,21 +3,21 @@ from campaign import Campaign, Weapon, WEAPONS
 
 def test_shop_spends_wallet_not_score_and_rejects_duplicate():
     run = Campaign()
-    run.wallet = 100
+    run.wallet = 1000
     run.score = 80
-    assert run.buy("smg")[0]
-    assert run.wallet == 100 - WEAPONS["smg"].price and run.score == 80
+    assert run.buy("ak")[0]
+    assert run.wallet == 1000 - WEAPONS["ak"].price and run.score == 80
     previous = run.wallet
-    assert not run.buy("smg")[0] and run.wallet == previous
-    assert run.equipped == "smg"
+    assert not run.buy("ak")[0] and run.wallet == previous
+    assert run.equipped == "ak"
 
 
 def test_insufficient_and_full_health_purchase_are_atomic():
     run = Campaign()
     run.wallet = 0
     assert not run.buy("knives")[0] and run.knives == 0
-    run.wallet = 100
-    assert not run.buy("heal")[0] and run.wallet == 100
+    run.wallet = 1000
+    assert not run.buy("heal")[0] and run.wallet == 1000
     run.health = 3
     assert run.buy("heal")[0] and run.health == 5
 
@@ -34,11 +34,11 @@ def test_knife_stock_and_cooldown():
 
 
 def test_weapon_profiles_and_upgrades_are_real_and_capped():
-    assert WEAPONS["shotgun"].pellets == 5
-    assert WEAPONS["rifle"].damage > WEAPONS["ak"].damage
-    assert WEAPONS["smg"].interval < WEAPONS["ak"].interval
+    assert WEAPONS["minigun"].interval < WEAPONS["glock"].interval
+    assert WEAPONS["ak"].damage > WEAPONS["minigun"].damage
+    assert WEAPONS["ak"].interval < WEAPONS["glock"].interval
     run = Campaign()
-    run.wallet = 1000
+    run.wallet = 10000
     for _ in range(3):
         assert run.buy("damage")[0]
     previous = run.wallet
@@ -48,11 +48,11 @@ def test_weapon_profiles_and_upgrades_are_real_and_capped():
 
 def test_inventory_and_wallet_survive_stage_transition():
     run = Campaign()
-    run.wallet = 100
-    run.buy("shotgun")
+    run.wallet = 1000
+    run.buy("ak")
     run.buy("knives")
-    gun = run.weapons["shotgun"]
+    gun = run.weapons["ak"]
     gun.fire()
     run.advance()
-    assert run.weapons["shotgun"] is gun and run.equipped == "shotgun"
+    assert run.weapons["ak"] is gun and run.equipped == "ak"
     assert run.knives == 5

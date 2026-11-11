@@ -1,0 +1,29 @@
+.....F......................................................             [100%]
+================================== FAILURES ===================================
+__________________ test_menu_button_positions_fully_visible ___________________
+
+window = GameWindow=(width=960, height=640)
+
+    def test_menu_button_positions_fully_visible(window):
+        from game import TelaMenu, HEIGHT
+    
+        m = TelaMenu()
+        window.show_view(m)
+        for b in m.ui.buttons:
+            # bottom >= 0, top <= HEIGHT
+>           assert b.rect.bottom >= 0, f"Button {b.id} bottom {b.rect.bottom} < 0"
+                   ^^^^^^
+E           AttributeError: 'Button' object has no attribute 'rect'
+
+tests\test_arcade_v3.py:113: AttributeError
+============================== warnings summary ===============================
+tests/test_arcade_v3.py::test_all_combat_effects_render_with_live_projectiles
+tests/test_runtime.py::test_real_render_and_physics
+tests/test_runtime.py::test_text_save_once_and_ranking_snapshot
+  Z:\ProjetoHermesJogo\Projeto-Moedas\.venv313\Lib\site-packages\arcade\exceptions.py:138: PerformanceWarning: draw_text is an extremely slow function for displaying text. Consider using Text objects instead.
+    warnings.warn(message, warning_type)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_arcade_v3.py::test_menu_button_positions_fully_visible - At...
+1 failed, 59 passed, 3 warnings in 10.34s

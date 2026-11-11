@@ -26,6 +26,7 @@ class ScreenMotion:
         self.time = 0.0
         self.pointer = (-100, -100)
         self.buttons = []
+        self.selection = None
         self.pending = None
         self.shot = None
         rng = random.Random(19)
@@ -51,10 +52,10 @@ class ScreenMotion:
             if button.contains(*self.pointer)
             else (x + w * 0.65, y + h * 0.5)
         )
-        self.pending = [0.22, button.action]
-        self.shot = [target, 0.22]
-        if self.view.window:
-            self.view.window.audio.play("menu")
+        delay = .25 if getattr(self.view.window, "reduced_effects", False) else .85
+        self.pending = [delay, button.action]
+        self.shot = [target, delay, delay]
+        self.bomb_sounded = False
         return True
 
     def click(self, x, y):
@@ -71,6 +72,9 @@ class ScreenMotion:
             target = 1.0 if b.contains(*self.pointer) else 0.0
             b.hover += (target - b.hover) * min(1, dt * 14)
         if self.shot:
+            if not self.bomb_sounded and self.shot[2] - self.shot[1] >= .12:
+                self.view.window.audio.play("boom_v4")
+                self.bomb_sounded = True
             self.shot[1] -= dt
             if self.shot[1] <= 0:
                 self.shot = None
@@ -93,73 +97,21 @@ class ScreenMotion:
 
             draw_menu_buttons(self)
         else:
-            for b in self.buttons:
-                x, y, w, h = b.box
-                shift = b.hover * 8
-                arcade.draw_rect_filled(
-                    arcade.LBWH(x + shift, y, w, h),
-                    (
-                        (23, 27, 35, 235)
-                        if getattr(b, "unavailable", False)
-                        else (17 + int(b.hover * 17), 35 + int(b.hover * 13), 40, 235)
-                    ),
-                )
-                arcade.draw_rect_filled(
-                    arcade.LBWH(x + shift, y, 3 + b.hover * 3, h),
-                    (255, 218, 101, int(130 + 125 * b.hover)),
-                )
-                arcade.draw_rect_outline(
-                    arcade.LBWH(x + shift, y, w, h),
-                    (255, 218, 101, int(35 + 180 * b.hover)),
-                    1,
-                )
-                arcade.draw_text(
-                    b.label,
-                    x + 18 + shift,
-                    y + h - 20 if getattr(b, "card", False) else y + h * 0.53,
-                    (255, 226, 137) if b.hover > 0.25 else (237, 242, 218),
-                    15,
-                    bold=True,
-                    anchor_y="center",
-                )
-                if getattr(b, "render_extra", None):
-                    b.render_extra()
-                if b.subtitle:
-                    arcade.draw_text(
-                        b.subtitle, x + 18 + shift, y + 8, (153, 185, 177), 10
-                    )
-                if b.hover > 0.05:
-                    arcade.draw_line(
-                        x + w - 36 + shift,
-                        y + h / 2,
-                        x + w - 18 + shift,
-                        y + h / 2,
-                        (255, 218, 101, int(255 * b.hover)),
-                        2,
-                    )
+            from arcade_style import draw_field_buttons
+
+            draw_field_buttons(self)
         if self.shot:
-            (tx, ty), remaining = self.shot
-            t = 1 - remaining / 0.22
+            (tx, ty), remaining, duration = self.shot
             if not self.view.window.reduced_effects:
-                arcade.draw_line(
-                    920, 50, tx, ty, (255, 230, 150, int(230 * (1 - t))), 3
-                )
-                for i in range(8):
-                    a = i * math.pi / 4
-                    r = 10 + t * 34
-                    arcade.draw_line(
-                        tx + math.cos(a) * r * 0.5,
-                        ty + math.sin(a) * r * 0.5,
-                        tx + math.cos(a) * r,
-                        ty + math.sin(a) * r,
-                        (255, 195, 85, int(255 * (1 - t))),
-                        2,
-                    )
-                arcade.draw_circle_filled(
-                    tx, ty, 12 * (1 - t), (255, 238, 188, int(220 * (1 - t)))
-                )
-            arcade.draw_circle_filled(tx, ty, 4, (8, 16, 20))
-            arcade.draw_circle_outline(tx, ty, 6, (255, 218, 101), 1)
+                from sprites_v6 import draw
+                elapsed = duration - remaining
+                if elapsed < .12:
+                    t = elapsed / .12
+                    draw("grenade", 920 + (tx - 920) * t,
+                         50 + (ty - 50) * t + math.sin(t * math.pi) * 160,
+                         28, 34, elapsed)
+                else:
+                    draw("explosion", tx, ty + 65, 230, 230, (elapsed - .12) * 1.9, loop=False)
         alpha = max(0, int(255 * (1 - self.time / 0.35)))
         if alpha:
             arcade.draw_rect_filled(arcade.LBWH(0, 0, 960, 640), (9, 21, 28, alpha))

@@ -1,0 +1,89 @@
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting tests/test_arcade_v3.py ___________________
+ImportError while importing test module 'Z:\ProjetoHermesJogo\Projeto-Moedas\tests\test_arcade_v3.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Vit�o\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_arcade_v3.py:5: in <module>
+    import arcade
+.venv313\Lib\site-packages\arcade\__init__.py:96: in <module>
+    from .application import MOUSE_BUTTON_LEFT
+.venv313\Lib\site-packages\arcade\application.py:15: in <module>
+    import pyglet.gl as gl
+.venv313\Lib\site-packages\pyglet\gl\__init__.py:190: in <module>
+    from .headless import HeadlessConfig as Config
+.venv313\Lib\site-packages\pyglet\gl\headless.py:6: in <module>
+    from pyglet.display.headless import HeadlessCanvas
+.venv313\Lib\site-packages\pyglet\display\__init__.py:36: in <module>
+    from pyglet.display.headless import HeadlessDisplay as Display
+.venv313\Lib\site-packages\pyglet\display\headless.py:12: in <module>
+    from pyglet.libs.egl import egl
+.venv313\Lib\site-packages\pyglet\libs\egl\egl.py:12: in <module>
+    _lib = pyglet.lib.load_library('EGL')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv313\Lib\site-packages\pyglet\lib.py:138: in load_library
+    raise ImportError(msg)
+E   ImportError: Library "EGL" not found.
+___________________ ERROR collecting tests/test_runtime.py ____________________
+ImportError while importing test module 'Z:\ProjetoHermesJogo\Projeto-Moedas\tests\test_runtime.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Vit�o\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_runtime.py:5: in <module>
+    import arcade
+.venv313\Lib\site-packages\arcade\__init__.py:96: in <module>
+    from .application import MOUSE_BUTTON_LEFT
+.venv313\Lib\site-packages\arcade\application.py:15: in <module>
+    import pyglet.gl as gl
+.venv313\Lib\site-packages\pyglet\gl\__init__.py:190: in <module>
+    from .headless import HeadlessConfig as Config
+.venv313\Lib\site-packages\pyglet\gl\headless.py:6: in <module>
+    from pyglet.display.headless import HeadlessCanvas
+.venv313\Lib\site-packages\pyglet\display\__init__.py:36: in <module>
+    from pyglet.display.headless import HeadlessDisplay as Display
+.venv313\Lib\site-packages\pyglet\display\headless.py:12: in <module>
+    from pyglet.libs.egl import egl
+.venv313\Lib\site-packages\pyglet\libs\egl\egl.py:12: in <module>
+    _lib = pyglet.lib.load_library('EGL')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv313\Lib\site-packages\pyglet\lib.py:138: in load_library
+    raise ImportError(msg)
+E   ImportError: Library "EGL" not found.
+______________________ ERROR collecting tests/test_v4.py ______________________
+ImportError while importing test module 'Z:\ProjetoHermesJogo\Projeto-Moedas\tests\test_v4.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Vit�o\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v4.py:5: in <module>
+    import arcade, pytest
+.venv313\Lib\site-packages\arcade\__init__.py:96: in <module>
+    from .application import MOUSE_BUTTON_LEFT
+.venv313\Lib\site-packages\arcade\application.py:15: in <module>
+    import pyglet.gl as gl
+.venv313\Lib\site-packages\pyglet\gl\__init__.py:190: in <module>
+    from .headless import HeadlessConfig as Config
+.venv313\Lib\site-packages\pyglet\gl\headless.py:6: in <module>
+    from pyglet.display.headless import HeadlessCanvas
+.venv313\Lib\site-packages\pyglet\display\__init__.py:36: in <module>
+    from pyglet.display.headless import HeadlessDisplay as Display
+.venv313\Lib\site-packages\pyglet\display\headless.py:12: in <module>
+    from pyglet.libs.egl import egl
+.venv313\Lib\site-packages\pyglet\libs\egl\egl.py:12: in <module>
+    _lib = pyglet.lib.load_library('EGL')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv313\Lib\site-packages\pyglet\lib.py:138: in load_library
+    raise ImportError(msg)
+E   ImportError: Library "EGL" not found.
+=========================== short test summary info ===========================
+ERROR tests/test_arcade_v3.py
+ERROR tests/test_runtime.py
+ERROR tests/test_v4.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!
+3 errors in 1.67s

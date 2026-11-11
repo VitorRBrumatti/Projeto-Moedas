@@ -17,20 +17,15 @@ class WeaponSpec:
     spread: float = 0
     pierce: int = 1
     color: tuple = (240, 197, 83)
+    movement: float = 1.0
 
 
 WEAPONS = {
-    "ak": WeaponSpec("AK-47", 0, 30, 0.105, 1.4, 1, 16, color=(188, 122, 67)),
-    "smg": WeaponSpec(
-        "VESPA / SMG", 32, 40, 0.065, 1.15, 1, 15, spread=0.025, color=(89, 200, 192)
-    ),
-    "shotgun": WeaponSpec(
-        "ESCOPETA", 46, 7, 0.48, 1.7, 1, 14, 5, 0.18, color=(243, 166, 81)
-    ),
-    "rifle": WeaponSpec(
-        "RIFLE DE PRECISÃO", 68, 10, 0.32, 1.8, 4, 22, pierce=2, color=(151, 176, 238)
-    ),
+    "glock": WeaponSpec("GLOCK-18", 0, 18, 0.32, 1.15, 1, 18, movement=1.12),
+    "ak": WeaponSpec("AK47", 120, 24, 0.11, 1.8, 5, 30, spread=0, movement=0.96),
+    "minigun": WeaponSpec("MINIGUN", 280, 90, 0.035, 2.8, 2, 25, spread=0, movement=0.82),
 }
+
 
 
 @dataclass(frozen=True)
@@ -162,7 +157,7 @@ STAGES = tuple(replace(stage, platforms=LAYOUTS[i]) for i, stage in enumerate(ST
 
 
 class Weapon:
-    def __init__(self, kind="ak"):
+    def __init__(self, kind="glock"):
         self.kind = kind
         self.spec = WEAPONS[kind]
         self.capacity = self.spec.capacity
@@ -170,6 +165,7 @@ class Weapon:
         self.cooldown = 0.0
         self.reloading = 0.0
         self.rate_level = 0
+        self.damage_level = 0
 
     def update(self, dt):
         self.cooldown = max(0.0, self.cooldown - dt)
@@ -200,12 +196,10 @@ class Campaign:
         self.time = 0.0
         self.invulnerable = 0.0
         self.finished = False
-        self.wallet = 16
-        self.weapons = {"ak": Weapon()}
-        self.equipped = "ak"
+        self.wallet = 12
+        self.weapons = {"glock": Weapon()}
+        self.equipped = "glock"
         self.knives = 0
-        self.damage_level = 0
-        self.rate_level = 0
         self.knife_cooldown = 0.0
         self.dash_time = 0.0
         self.dash_cooldown = 0.0
@@ -213,6 +207,14 @@ class Campaign:
     @property
     def weapon(self):
         return self.weapons[self.equipped]
+
+    @property
+    def damage_level(self):
+        return self.weapon.damage_level
+
+    @property
+    def rate_level(self):
+        return self.weapon.rate_level
 
     def update(self, dt):
         self.time += dt
@@ -256,19 +258,21 @@ class Campaign:
         return {
             "knives": 8,
             "heal": 16,
-            "damage": 24 + self.damage_level * 14,
-            "rate": 22 + self.rate_level * 15,
+            "damage": (40 + self.damage_level * 45) * (2 if self.equipped == "minigun" else 1),
+            "rate": 45 + self.rate_level * 55,
         }.get(item, 0)
 
     def buy(self, item):
         if item in WEAPONS and item in self.weapons:
-            return False, "Arma já adquirida. Use 1–4 para equipar."
+            return False, "Arma já adquirida. Use 1–3 para equipar."
         if item not in WEAPONS and item not in ("knives", "heal", "damage", "rate"):
             return False, "Item indisponível."
         if item == "heal" and self.health == 5:
             return False, "Vida já está completa."
         if item == "damage" and self.damage_level >= 3:
             return False, "Dano no nível máximo."
+        if item == "rate" and self.equipped == "minigun":
+            return False, "Minigun: cadência fixa, sem upgrade."
         if item == "rate" and self.rate_level >= 2:
             return False, "Cadência no nível máximo."
         if item == "knives" and self.knives > 25:
@@ -285,11 +289,9 @@ class Campaign:
         elif item == "heal":
             self.health = min(5, self.health + 2)
         elif item == "damage":
-            self.damage_level += 1
+            self.weapon.damage_level += 1
         elif item == "rate":
-            self.rate_level += 1
-        for gun in self.weapons.values():
-            gun.rate_level = self.rate_level
+            self.weapon.rate_level += 1
         return True, "Compra concluída."
 
     def advance(self):
@@ -299,5 +301,6 @@ class Campaign:
             self.finished = True
             return False
         self.stage += 1
+        self.wallet += 25
         self.health = min(5, self.health + 1)
         return True

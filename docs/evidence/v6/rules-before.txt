@@ -1,0 +1,33 @@
+FF.                                                                      [100%]
+================================== FAILURES ===================================
+_____________________ test_requested_arsenal_and_profiles _____________________
+
+    def test_requested_arsenal_and_profiles():
+>       assert set(WEAPONS) == {"glock", "ak", "minigun"}
+E       AssertionError: assert {'ak', 'rifle...otgun', 'smg'} == {'ak', 'glock', 'minigun'}
+E         
+E         Extra items in the left set:
+E         'smg'
+E         'shotgun'
+E         'rifle'
+E         Extra items in the right set:
+E         'glock'
+E         'minigun'
+E         Use -v to get more diff
+
+tests\test_v6_rules.py:5: AssertionError
+________ test_upgrades_belong_to_equipped_gun_and_minigun_has_no_rate _________
+
+    def test_upgrades_belong_to_equipped_gun_and_minigun_has_no_rate():
+        run = Campaign()
+        run.wallet = 5000
+        assert run.buy("damage")[0]
+        assert run.damage_level == 1
+>       assert run.buy("ak")[0] and run.damage_level == 0
+E       assert (False)
+
+tests\test_v6_rules.py:19: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_v6_rules.py::test_requested_arsenal_and_profiles - Assertio...
+FAILED tests/test_v6_rules.py::test_upgrades_belong_to_equipped_gun_and_minigun_has_no_rate
+2 failed, 1 passed in 0.07s

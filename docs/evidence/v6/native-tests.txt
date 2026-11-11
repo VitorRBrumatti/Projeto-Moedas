@@ -1,0 +1,12 @@
+........................................................................ [ 91%]
+.......                                                                  [100%]
+============================== warnings summary ===============================
+tests/test_arcade_v3.py::test_all_combat_effects_render_with_live_projectiles
+tests/test_arcade_v3.py::test_v5b_ui_assets_preloaded_and_shop_keeps_economy
+tests/test_runtime.py::test_real_render_and_physics
+tests/test_runtime.py::test_text_save_once_and_ranking_snapshot
+  Z:\ProjetoHermesJogo\Projeto-Moedas\.venv\Lib\site-packages\arcade\exceptions.py:138: PerformanceWarning: draw_text is an extremely slow function for displaying text. Consider using Text objects instead.
+    warnings.warn(message, warning_type)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+79 passed, 4 warnings in 11.28s

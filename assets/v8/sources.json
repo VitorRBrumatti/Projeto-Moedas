@@ -1,0 +1,38 @@
+[
+  {
+    "file": "cover.png",
+    "sha256": "d78097bd666e05c0d9601343342d219d7e41396f2157c0943659fc7c2b90ccfc",
+    "source": "military-source.png",
+    "adaptation": "Insignia: face estável, contorno escuro/claro e brilho; tiles/caixa: recorte de8 células, remoção do fundo claro conectado às bordas, nearest-neighbor; fontes preservadas."
+  },
+  {
+    "file": "insignia.png",
+    "sha256": "1ff9bec435545499433aae056775aff35740eed8ae56e16aa0c68acb2bc81328",
+    "source": "../v6/insignia.png",
+    "adaptation": "Insignia: face estável, contorno escuro/claro e brilho; tiles/caixa: recorte de8 células, remoção do fundo claro conectado às bordas, nearest-neighbor; fontes preservadas."
+  },
+  {
+    "file": "military-source.png",
+    "sha256": "823b60e6158b055da532c4cc157a37f21547b209f1e0cd9e525b33575d0e69a8",
+    "source": "built-in image_gen",
+    "adaptation": "Insignia: face estável, contorno escuro/claro e brilho; tiles/caixa: recorte de8 células, remoção do fundo claro conectado às bordas, nearest-neighbor; fontes preservadas."
+  },
+  {
+    "file": "tile-ground.png",
+    "sha256": "1758dd7827f301dfb1ec101326a906cd4efd0b0534b14006097399fd00faa8e8",
+    "source": "military-source.png",
+    "adaptation": "Insignia: face estável, contorno escuro/claro e brilho; tiles/caixa: recorte de8 células, remoção do fundo claro conectado às bordas, nearest-neighbor; fontes preservadas."
+  },
+  {
+    "file": "tile-platform.png",
+    "sha256": "1a4d7ffacb84fa3ee92cc3392e4bce7be7379f6f1e79a2a119358181e4bbfe62",
+    "source": "military-source.png",
+    "adaptation": "Insignia: face estável, contorno escuro/claro e brilho; tiles/caixa: recorte de8 células, remoção do fundo claro conectado às bordas, nearest-neighbor; fontes preservadas."
+  },
+  {
+    "file": "tile-wall.png",
+    "sha256": "81de61ed3b997db456c84f79461eaf9bd16768cedaccf0c72c8e914218d44a95",
+    "source": "military-source.png",
+    "adaptation": "Insignia: face estável, contorno escuro/claro e brilho; tiles/caixa: recorte de8 células, remoção do fundo claro conectado às bordas, nearest-neighbor; fontes preservadas."
+  }
+]

@@ -73,7 +73,7 @@ def test_sweep_orders_thin_targets_and_cover_without_duplicate_damage(window):
     shot = Bullet(140, 220, 280, 0, damage=4, pierce=3)
     v.bullets.append(shot)
     v.on_update(1 / 60)
-    assert a.hp == 126 and b.hp == 126 and shot not in v.bullets
+    assert a.hp == 456 and b.hp == 456 and shot not in v.bullets
     assert len(shot.hit_ids) == 2
 
 
@@ -102,7 +102,7 @@ def test_sweep_handles_barrel_grenade_and_expiration(window):
     assert expired not in v.bullets
 
 
-@pytest.mark.parametrize("kind", ["ak", "smg", "shotgun", "rifle"])
+@pytest.mark.parametrize("kind", ["glock", "ak", "minigun"])
 @pytest.mark.parametrize("angle", [0, 0.8, 2.9, -1.2])
 def test_all_guns_share_true_muzzle_and_rotation(window, kind, angle):
     v = scene(window)
@@ -186,14 +186,14 @@ def test_shop_owned_weapon_click_equips_without_spending(window):
     from game import TelaLoja
 
     v = scene(window)
-    v.run.wallet = 100
-    v.run.buy("smg")
-    v.run.equip("ak")
+    v.run.wallet = 1000
+    v.run.buy("ak")
+    v.run.equip("glock")
     shop = TelaLoja(v)
     window.show_view(shop)
     before = v.run.wallet
-    shop.purchase("smg")
-    assert v.run.equipped == "smg" and v.run.wallet == before
+    shop.purchase("ak")
+    assert v.run.equipped == "ak" and v.run.wallet == before
 
 
 def test_projectile_visuals_compact_and_weapon_audio_distinct():
@@ -201,11 +201,11 @@ def test_projectile_visuals_compact_and_weapon_audio_distinct():
     from pathlib import Path
     import hashlib, wave
 
-    for kind in ("ak", "smg", "shotgun", "rifle"):
+    for kind in ("glock", "ak", "minigun"):
         assert 8 <= TRAILS[kind] <= 16 and FLASH_TIME[kind] < 0.06
     digests = []
-    for kind in ("ak", "smg", "shotgun", "rifle"):
-        path = Path(__file__).parents[1] / "assets" / f"shot_{kind}.wav"
+    for kind in ("glock", "ak", "minigun"):
+        path = Path(__file__).parents[1] / "assets" / ("shot_ak.wav" if kind == "ak" else "v6/shot-" + kind + ".wav")
         digests.append(hashlib.sha256(path.read_bytes()).hexdigest())
         with wave.open(str(path), "rb") as audio:
             assert (
@@ -213,7 +213,7 @@ def test_projectile_visuals_compact_and_weapon_audio_distinct():
                 and audio.getsampwidth() == 2
                 and audio.getnframes() > 1000
             )
-    assert len(set(digests)) == 4
+    assert len(set(digests)) == 3
 
 
 def test_ranking_indirect_inheritance_and_view_contract(window):
@@ -226,8 +226,8 @@ def test_enemy_between_grip_and_muzzle_is_hit(window):
     v = scene(window)
     v.ballistic.clear()
     v.player.position = (150, 250)
-    v.run.weapons["rifle"] = Weapon("rifle")
-    v.run.equipped = "rifle"
+    v.run.weapons["minigun"] = Weapon("minigun")
+    v.run.equipped = "minigun"
     v.on_mouse_motion(800, 253, 0, 0)
     enemy = Enemy(165, 253, "guard", 0)
     v.enemies.append(enemy)

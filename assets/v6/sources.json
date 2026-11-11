@@ -1,0 +1,366 @@
+[
+  {
+    "file": "drone.png",
+    "sha256": "796f0d1226a114e987cd938eea28b2979d23890a4e97f7ef73b73f1d56990096",
+    "size": [
+      96,
+      64
+    ],
+    "count": 8,
+    "fps": 14,
+    "author": "Usuário Vitor, autoria e uso/modificação/redistribuição confirmados nesta conversa",
+    "source": "../combat_drone_8frames_384x128.png",
+    "source_sha256": "fd1df486a50a11869d004ac6d2de3fd2bbf1932d5c4a7d044dd2c4de40f1afd1",
+    "adaptation": "Grade real 4x2; oito frames; normalização para strip horizontal. Boss 240x160; drone96x64."
+  },
+  {
+    "file": "boss.png",
+    "sha256": "66fd27e1ec4691e3379ac1e28109fd10f68ad3d5920adf1fd26ef5318a3b4c71",
+    "size": [
+      240,
+      160
+    ],
+    "count": 8,
+    "fps": 11,
+    "author": "Usuário Vitor, autoria e uso/modificação/redistribuição confirmados nesta conversa",
+    "source": "../iron_commander_attack_8f_1152x320.png",
+    "source_sha256": "2edfa9414cbc30a9f20b9b47512f2a36defb95ccc1e5544a9289379107baa224",
+    "adaptation": "Grade real 4x2; oito frames; normalização para strip horizontal. Boss 240x160; drone96x64."
+  },
+  {
+    "file": "weapon-glock.png",
+    "sha256": "ba2fc7b3bfee66865b7b65529675c9968a01563112461e4e51088c5e70bef919",
+    "size": [
+      42,
+      27
+    ],
+    "count": 8,
+    "fps": 24,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "weapons-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "weapon-ak.png",
+    "sha256": "5ed187195835e073f63aac79ada81f2f1b6126aad89be1d8c29539a607f63437",
+    "size": [
+      56,
+      27
+    ],
+    "count": 8,
+    "fps": 24,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "weapons-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "weapon-minigun.png",
+    "sha256": "ae30bb7b4e5be6d7a4b91da96946ba07cfeb869182f013e20b2fb38348792b6c",
+    "size": [
+      62,
+      27
+    ],
+    "count": 8,
+    "fps": 24,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "weapons-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "explosion.png",
+    "sha256": "2fc9d02f00deb287dd7bcdd6d64cdc7547142f92e3341fda9a866f156d054945",
+    "size": [
+      128,
+      128
+    ],
+    "count": 18,
+    "fps": 14.285714285714286,
+    "empty_frames": [
+      17
+    ],
+    "author": "PVFX Foundry",
+    "source": "pvfx-foundry-thirteen-spritesheets.zip / effects/explosions/big-explosion/strict/grid/sprite-sheet.png",
+    "license": "CC0 no escopo de sprite-sheet.png e manifest.json",
+    "license_file": "PVFX-LICENSE.txt",
+    "adaptation": "Frames extraídos pelo manifest.json; duração original preservada. Quadros terminais vazios explicitamente registrados."
+  },
+  {
+    "file": "hit.png",
+    "sha256": "3dd7c1eb161c0345634071d709598434f70ce75921c302ab0b193daea49010fb",
+    "size": [
+      64,
+      64
+    ],
+    "count": 8,
+    "fps": 12.5,
+    "empty_frames": [
+      7
+    ],
+    "author": "PVFX Foundry",
+    "source": "pvfx-foundry-thirteen-spritesheets.zip / effects/impacts/hit-spark/strict/grid/sprite-sheet.png",
+    "license": "CC0 no escopo de sprite-sheet.png e manifest.json",
+    "license_file": "PVFX-LICENSE.txt",
+    "adaptation": "Frames extraídos pelo manifest.json; duração original preservada. Quadros terminais vazios explicitamente registrados."
+  },
+  {
+    "file": "spark.png",
+    "sha256": "670105f56072a82970bd730b5426f30f7dcd2bec615413a0afa7d76ad8355d7b",
+    "size": [
+      96,
+      80
+    ],
+    "count": 11,
+    "fps": 14.285714285714286,
+    "empty_frames": [
+      10
+    ],
+    "author": "PVFX Foundry",
+    "source": "pvfx-foundry-thirteen-spritesheets.zip / effects/impacts/crit-hit/strict/grid/sprite-sheet.png",
+    "license": "CC0 no escopo de sprite-sheet.png e manifest.json",
+    "license_file": "PVFX-LICENSE.txt",
+    "adaptation": "Frames extraídos pelo manifest.json; duração original preservada. Quadros terminais vazios explicitamente registrados."
+  },
+  {
+    "file": "beam.png",
+    "sha256": "9c0e4e28b0f147a6e14406cda0e11e2846af636e3cbed6604a740eccc9ac05ea",
+    "size": [
+      64,
+      112
+    ],
+    "count": 24,
+    "fps": 14.285714285714286,
+    "empty_frames": [
+      23
+    ],
+    "author": "PVFX Foundry",
+    "source": "pvfx-foundry-thirteen-spritesheets.zip / effects/fire/fire-pillar/strict/grid/sprite-sheet.png",
+    "license": "CC0 no escopo de sprite-sheet.png e manifest.json",
+    "license_file": "PVFX-LICENSE.txt",
+    "adaptation": "Frames extraídos pelo manifest.json; duração original preservada. Quadros terminais vazios explicitamente registrados."
+  },
+  {
+    "file": "cover.png",
+    "sha256": "f9c91ab8a9021c1b55bf55c23e07d4f6108e09e73e10827b9185c829db5f8b0b",
+    "size": [
+      36,
+      48
+    ],
+    "count": 1,
+    "fps": 12,
+    "author": "Kenney",
+    "source": "kenney_tanksPack.zip / PNG/Default size/tanks_crateWood.png",
+    "license": "CC0",
+    "license_file": "../v5/kenney_tanksPack-License.txt",
+    "url": "https://kenney.nl"
+  },
+  {
+    "file": "bullet.png",
+    "sha256": "6db6150969d4c849e2d14432b542ffbb45940e00d44ff1a8343956fbbf7ab5e6",
+    "size": [
+      16,
+      5
+    ],
+    "count": 1,
+    "fps": 12,
+    "author": "Kenney",
+    "source": "kenney_tanksPack.zip / PNG/Default size/tank_bullet1.png",
+    "license": "CC0",
+    "license_file": "../v5/kenney_tanksPack-License.txt",
+    "url": "https://kenney.nl"
+  },
+  {
+    "file": "insignia.png",
+    "sha256": "cb61012f764019afddcd4684cdeb361e67299759d0e30d389f571658cddfe021",
+    "size": [
+      28,
+      28
+    ],
+    "count": 8,
+    "fps": 12,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "props-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "jerrycan.png",
+    "sha256": "0f8de1d6f609a2540dd24c0e1089ad0077de1d5b344c10adbfb0a19e4fe95414",
+    "size": [
+      32,
+      44
+    ],
+    "count": 8,
+    "fps": 12,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "props-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "mine.png",
+    "sha256": "27f663b7a197af44ce79d3ad36d7a82f771ad06fb95fdfb537a3e62574eaae46",
+    "size": [
+      42,
+      22
+    ],
+    "count": 8,
+    "fps": 12,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "props-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "emitter.png",
+    "sha256": "bb286167a34009dfcea6b71da0cf7655d2dfd5288e738d38c6eff2af345aa0bf",
+    "size": [
+      44,
+      48
+    ],
+    "count": 8,
+    "fps": 12,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "props-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "grenade.png",
+    "sha256": "b82369b5c431ea5c153a2d6459dcfa41153af1d91a3b779c28cdd98254f4ee45",
+    "size": [
+      18,
+      22
+    ],
+    "count": 8,
+    "fps": 12,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "props-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "spikes.png",
+    "sha256": "aa4efd43a5ce70f63dd1c6269926adacb30b60313bf7ec4122343c4510c050c3",
+    "size": [
+      42,
+      22
+    ],
+    "count": 8,
+    "fps": 12,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "props-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "bandit.png",
+    "sha256": "a8b40054c49ad674c9da3aece7b13195a581e4e12816179671815e7690b44843",
+    "size": [
+      96,
+      128
+    ],
+    "count": 8,
+    "fps": 14,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "bandit-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "bandit-attack.png",
+    "sha256": "faf242fc1205c56aa04a2743eec0382902880aa78ab14c4cd69f071053d1d385",
+    "size": [
+      96,
+      128
+    ],
+    "count": 8,
+    "fps": 12,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "bandit-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "knife.png",
+    "sha256": "6703570041bcfb59ed85214ddef8e390bd5d21035a63fbce10c1e618ef20036b",
+    "size": [
+      32,
+      28
+    ],
+    "count": 8,
+    "fps": 16,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "extras-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "tracer.png",
+    "sha256": "8e61e9039b02c85f4879c9d01d612c91b1452d31bfcb682698288e30f76619fe",
+    "size": [
+      24,
+      8
+    ],
+    "count": 8,
+    "fps": 16,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "extras-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "casing.png",
+    "sha256": "9358b17d1b37dbe161ba26656824dbc05b7265767b7f2ef7de55f3669577080b",
+    "size": [
+      8,
+      8
+    ],
+    "count": 8,
+    "fps": 16,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "extras-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "laser-beam.png",
+    "sha256": "1042e6fdaa02bd2f4ef7d975b98956e7d91e4e012c8e595d83afdd05f9f0779a",
+    "size": [
+      20,
+      96
+    ],
+    "count": 8,
+    "fps": 16,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "extras-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "flag.png",
+    "sha256": "d54765f86c445ebfedd850fa692effad218944a838c0a78ea53edaa87187ece2",
+    "size": [
+      66,
+      144
+    ],
+    "count": 8,
+    "fps": 16,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "extras-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "bridge.png",
+    "sha256": "b632418693a1bc8c7e48a8b2338649227f4b968d42101b19a60ebcb79a4712fb",
+    "size": [
+      192,
+      64
+    ],
+    "count": 8,
+    "fps": 16,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "extras-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  },
+  {
+    "file": "hostile-tracer.png",
+    "sha256": "9a0cf8e47d92a93715d259a6a8688b85dfc9de5ba9b4f46eae0d361a27a38195",
+    "size": [
+      24,
+      8
+    ],
+    "count": 8,
+    "fps": 16,
+    "author": "Arte criada nesta sessão com built-in image_gen, sob solicitação do usuário",
+    "source": "extras-source.png",
+    "adaptation": "Recorte de células após inspeção; limpeza alpha; nearest-neighbor; baseline/muzzle normalizados. Hostile tracer recebe tonalidade vermelha."
+  }
+]
