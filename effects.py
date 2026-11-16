@@ -98,3 +98,28 @@ class SpriteEcho:
             alpha=alpha,
             pixelated=True,
         )
+
+
+class SpriteVfx:
+    """One-shot animated spritesheet effect managed inside the particle list."""
+
+    def __init__(self, name, x, y, width, height, flip=False):
+        from sprite_assets import REGISTRY
+        spec = REGISTRY[name]
+        self.name = name
+        self.x = x
+        self.y = y
+        self.w = width
+        self.h = height
+        self.flip = flip
+        self.age = 0.0
+        self.vida = spec["count"] / spec["fps"]
+
+    def update(self, dt):
+        self.age += dt
+        self.vida -= dt
+
+    def draw(self):
+        if self.vida > 0:
+            from sprite_assets import draw
+            draw(self.name, self.x, self.y, self.w, self.h, self.age, loop=False, flip=self.flip)

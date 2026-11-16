@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coin Commando — Comparação Visual de Assets</title>
+<style>
+  :root {
+    --bg: #0f141b;
+    --panel: #17202b;
+    --border: #283648;
+    --text: #e6edf3;
+    --muted: #8b9bb4;
+    --pronto: #2ea043;
+    --adaptar: #d29922;
+    --criar: #f85149;
+    --manter: #58a6ff;
+    --descartar: #6e7681;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+  h1 { margin: 0 0 4px 0; font-size: 1.5rem; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .btn.active { border-color: #fff; background: #243242; }
+  .section-title {
+    margin: 28px 0 12px 0;
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    border-left: 4px solid var(--manter);
+    padding-left: 10px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title { font-weight: 700; font-size: 1rem; }
+  .badge {
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+  }
+  .badge-PRONTO { background: var(--pronto); }
+  .badge-ADAPTAR { background: var(--adaptar); color: #111; }
+  .badge-CRIAR { background: var(--criar); }
+  .badge-MANTER { background: var(--manter); color: #08121e; }
+  .badge-DESCARTAR { background: var(--descartar); }
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .slot {
+    background: #0b1016;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 130px;
+  }
+  .slot-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
+    margin-bottom: 6px;
+  }
+  .thumb-wrap {
+    width: 100%;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #131a24 25%, transparent 25%),
+      linear-gradient(-45deg, #131a24 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #131a24 75%),
+      linear-gradient(-45deg, transparent 75%, #131a24 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+    border-radius: 4px;
+  }
+  .thumb-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: pixelated;
+    object-fit: contain;
+  }
+  .code-placeholder {
+    font-size: 0.78rem;
+    color: #9fb0c7;
+    text-align: center;
+    padding: 8px;
+  }
+  .meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .meta strong { color: var(--text); }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Coin Commando — Auditoria Visual de Assets</h1>
+    <p class="subtitle">Comparação lado a lado entre os recursos atuais e os pacotes locais em <code>../_audit_workspace/</code> (pixel-perfect preview).</p>
+  </div>
+  <div class="filters">
+    <button class="btn active" data-filter="ALL">Todos</button>
+    <button class="btn" data-filter="PRONTO">PRONTO</button>
+    <button class="btn" data-filter="ADAPTAR">ADAPTAR</button>
+    <button class="btn" data-filter="CRIAR">CRIAR</button>
+    <button class="btn" data-filter="MANTER">MANTER</button>
+    <button class="btn" data-filter="DESCARTAR">Incompatíveis</button>
+  </div>
+</header>
+
+<h2 class="section-title">1. Personagens e Inimigos</h2>
+<div class="grid">
+  <div class="card" data-status="MANTER">
+    <div class="card-head">
+      <span class="card-title">Protagonista (Jogador)</span>
+      <span class="badge badge-MANTER">MANTER</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (96×128 × 10q)</span>
+        <div class="thumb-wrap"><img src="../assets/player.png" alt="player atual"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Candidato (Vacaroxa 45×45)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Player/SpriteSheet_player.png" alt="player vacaroxa"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Decisão:</strong> Manter <code>assets/player.png</code>. Cumpre o requisito POO (<code>96×128</code>, 10 quadros) e possui arte arcade superior.</div>
+  </div>
+
+  <div class="card" data-status="MANTER">
+    <div class="card-head">
+      <span class="card-title">Inimigo Guard (Base)</span>
+      <span class="badge badge-MANTER">MANTER</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (96×128, 1q)</span>
+        <div class="thumb-wrap"><img src="../assets/guard.png" alt="guard atual"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Candidato (Vacaroxa ARMob)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png" alt="ARMob"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Decisão:</strong> Manter <code>guard.png</code> como soldado base; <code>ARMob.png</code> pode ser adaptado para variantes animadas.</div>
+  </div>
+
+  <div class="card" data-status="ADAPTAR">
+    <div class="card-head">
+      <span class="card-title">Inimigo Shooter (Atirador)</span>
+      <span class="badge badge-ADAPTAR">ADAPTAR</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (guard + tint azul)</span>
+        <div class="thumb-wrap"><img src="../assets/guard.png" alt="guard"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Candidato (SniperMob 616×44)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png" alt="SniperMob"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Ação:</strong> Fatiar 14 quadros <code>44×44</code> e aplicar upscale nearest-neighbor ~2× (confirmar licença Vacaroxa antes).</div>
+  </div>
+
+  <div class="card" data-status="ADAPTAR">
+    <div class="card-head">
+      <span class="card-title">Inimigo Charger / RPG</span>
+      <span class="badge badge-ADAPTAR">ADAPTAR</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (guard + tint vermelho)</span>
+        <div class="thumb-wrap"><img src="../assets/guard.png" alt="guard"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Candidato (RPGmob 440×44)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/RPGmob.png" alt="RPGmob"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Ação:</strong> 10 quadros <code>44×44</code> com animação de tiro e morte; exige upscale nearest-neighbor ~2×.</div>
+  </div>
+
+  <div class="card" data-status="MANTER">
+    <div class="card-head">
+      <span class="card-title">Drone &amp; Chefão (Boss)</span>
+      <span class="badge badge-MANTER">MANTER</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Drone (78×66)</span>
+        <div class="thumb-wrap"><img src="../assets/drone.png" alt="drone"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Boss (240×144)</span>
+        <div class="thumb-wrap"><img src="../assets/boss.png" alt="boss"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Decisão:</strong> Coerência total entre si em pixel art militar mech. Muito superiores aos pacotes vetoriais.</div>
+  </div>
+
+  <div class="card" data-status="ADAPTAR">
+    <div class="card-head">
+      <span class="card-title">Helicóptero (Extração / Cutscene)</span>
+      <span class="badge badge-ADAPTAR">ADAPTAR</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Saída bandeira código)</span>
+        <div class="thumb-wrap"><div class="code-placeholder">Mastro + triângulo procedural (<code>draw_exit</code>)</div></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Candidato (768×32, 8q 96×32)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/helicopter/helicopter.png" alt="helicopter"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Nota:</strong> Bom para veículo de extração após validar licença de <code>helicopter.zip</code>.</div>
+  </div>
+</div>
+
+<h2 class="section-title">2. VFX — Explosões, Impactos, Poeira e Pickups (PVFX Foundry CC0)</h2>
+<div class="grid">
+  <div class="card" data-status="PRONTO">
+    <div class="card-head">
+      <span class="card-title">Explosão Grande (Granada / Barril)</span>
+      <span class="badge badge-PRONTO">PRONTO</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Código)</span>
+        <div class="thumb-wrap"><div class="code-placeholder">2 círculos + 7 quadrados escuros (<code>combat.py</code>)</div></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">PVFX strict (128×128, 18q)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/explosions/big-explosion/strict/grid/sprite-sheet.png" alt="big explosion"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Licença:</strong> CC0 1.0. Sheet <code>1024×384</code> (8 colunas × 3 linhas, células <code>128×128</code>).</div>
+  </div>
+
+  <div class="card" data-status="PRONTO">
+    <div class="card-head">
+      <span class="card-title">Explosão Pequena (Drone / Morte)</span>
+      <span class="badge badge-PRONTO">PRONTO</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Partículas)</span>
+        <div class="thumb-wrap"><div class="code-placeholder">Partículas quadradas 2–5px</div></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">PVFX strict (64×64, 14q)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/explosions/small-explosion/strict/grid/sprite-sheet.png" alt="small explosion"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Licença:</strong> CC0 1.0. Alternativa compacta: <code>vacaroxa/Explosion_Particle.png</code> (<code>32×32</code>, 9q).</div>
+  </div>
+
+  <div class="card" data-status="PRONTO">
+    <div class="card-head">
+      <span class="card-title">Faísca de Impacto de Bala</span>
+      <span class="badge badge-PRONTO">PRONTO</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Código)</span>
+        <div class="thumb-wrap"><div class="code-placeholder">6 linhas radiais amarelas (<code>Impact</code>)</div></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">PVFX hit-spark (64×64, 8q)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/impacts/hit-spark/strict/grid/sprite-sheet.png" alt="hit spark"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Licença:</strong> CC0 1.0. Sheet <code>512×64</code> em linha única (8 quadros).</div>
+  </div>
+
+  <div class="card" data-status="PRONTO">
+    <div class="card-head">
+      <span class="card-title">Poeira de Dash e Pouso</span>
+      <span class="badge badge-PRONTO">PRONTO</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Eco / Partículas)</span>
+        <div class="thumb-wrap"><div class="code-placeholder"><code>SpriteEcho</code> + linhas curtas</div></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">PVFX dash-dust (68×32, 13q)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/smoke/dash-dust/strict/grid/sprite-sheet.png" alt="dash dust"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Licença:</strong> CC0 1.0. Complementar com <code>smoke/dust-puff</code> (<code>72×40</code>, 14q).</div>
+  </div>
+
+  <div class="card" data-status="PRONTO">
+    <div class="card-head">
+      <span class="card-title">Chamas / Lava da Fundição (Fase 3)</span>
+      <span class="badge badge-PRONTO">PRONTO</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Retângulo laranja)</span>
+        <div class="thumb-wrap"><div class="code-placeholder">Retângulo pulsante no piso</div></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">PVFX ground-flames (64×40, 16q)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/fire/ground-flames/strict/grid/sprite-sheet.png" alt="ground flames"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Licença:</strong> CC0 1.0. Também disponíveis <code>lava-burst</code> e <code>steam-vent</code>.</div>
+  </div>
+
+  <div class="card" data-status="PRONTO">
+    <div class="card-head">
+      <span class="card-title">Efeito de Coleta de Moeda &amp; Brilho</span>
+      <span class="badge badge-PRONTO">PRONTO</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Moeda 27×27 + partículas)</span>
+        <div class="thumb-wrap"><img src="../assets/coin.png" alt="coin"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">PVFX coin-pickup (32×32, 10q)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/ui/coin-pickup/strict/grid/sprite-sheet.png" alt="coin pickup"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Obs:</strong> O efeito de coleta é <strong>PRONTO</strong>, mas a moeda giratória em si precisa ser <strong>CRIADA</strong>.</div>
+  </div>
+</div>
+
+<h2 class="section-title">3. Cenários, Tilesets, Objetos e Mira</h2>
+<div class="grid">
+  <div class="card" data-status="PRONTO">
+    <div class="card-head">
+      <span class="card-title">Mira do Mouse (Crosshair)</span>
+      <span class="badge badge-PRONTO">PRONTO</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (Círculo + 4 linhas)</span>
+        <div class="thumb-wrap"><div class="code-placeholder">Desenho vetorial dourado (<code>game.py</code>)</div></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Kenney Outline (74×74)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/kenney_crosshair-pack/PNG/Outline/crosshair-000.png" alt="crosshair"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Licença:</strong> CC0 1.0. 200 opções em <code>Outline</code> e <code>Dark</code>. Usar <code>scale=0.45</code>.</div>
+  </div>
+
+  <div class="card" data-status="ADAPTAR">
+    <div class="card-head">
+      <span class="card-title">Tiles Fundição, Caixote &amp; Ponte</span>
+      <span class="badge badge-ADAPTAR">ADAPTAR</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (stone.png / bridge.png)</span>
+        <div class="thumb-wrap"><img src="../assets/bridge.png" alt="bridge"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Vacaroxa tiles_out.png (208×400)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_2/tileset/tiles_out.png" alt="tiles_out"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Ação:</strong> Recortar caixote de madeira (<code>Cover</code>), vigas industriais e passarela (<code>bridge.png</code>).</div>
+  </div>
+
+  <div class="card" data-status="ADAPTAR">
+    <div class="card-head">
+      <span class="card-title">Tiles Industriais Extra (Ruínas/Fundição)</span>
+      <span class="badge badge-ADAPTAR">ADAPTAR</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (stone.png 48×48)</span>
+        <div class="thumb-wrap"><img src="../assets/stone.png" alt="stone"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Assorted IndustrialRuins (32×32)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/AssortedPixelArt/AssortedPixelArt/IndustrialRuins_32x32.png" alt="industrial ruins"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Ação:</strong> Recorte + escala <code>1.5×</code> (<code>32→48px</code>) se a licença do pacote for confirmada.</div>
+  </div>
+
+  <div class="card" data-status="MANTER">
+    <div class="card-head">
+      <span class="card-title">Fundos de Fase (Ex: Ruínas &amp; Fundição)</span>
+      <span class="badge badge-MANTER">MANTER</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Atual (foundry.png)</span>
+        <div class="thumb-wrap"><img src="../assets/foundry.png" alt="foundry"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Reserva (Vista-Ten kiln@3x)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/vista-ten-1.0.0/vista-ten/kiln/kiln@3x.png" alt="kiln"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Decisão:</strong> Os 4 fundos atuais e <code>arcade-menu.png</code> são superiores em detalhamento temático.</div>
+  </div>
+
+  <div class="card" data-status="CRIAR">
+    <div class="card-head">
+      <span class="card-title">Itens Exclusivos Faltantes</span>
+      <span class="badge badge-CRIAR">CRIAR</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Moeda Atual (estática)</span>
+        <div class="thumb-wrap"><img src="../assets/coin.png" alt="coin"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Sem substituto nos pacotes</span>
+        <div class="thumb-wrap"><div class="code-placeholder">Moeda animada, Moeda Especial, Tiles Deserto/Glacial, Barril, Mina, Espinhos, Laser, Granada</div></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Ver lista detalhada:</strong> <a href="MISSING_ASSETS.md" style="color:#58a6ff">docs/MISSING_ASSETS.md</a>.</div>
+  </div>
+</div>
+
+<h2 class="section-title">4. Pacotes Descartados (Estética ou Escala Incompatível)</h2>
+<div class="grid">
+  <div class="card" data-status="DESCARTAR">
+    <div class="card-head">
+      <span class="card-title">Kenney Tanks Pack (Vetorial Flat)</span>
+      <span class="badge badge-DESCARTAR">INCOMPATÍVEL</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Boss atual (Pixel Art)</span>
+        <div class="thumb-wrap"><img src="../assets/boss.png" alt="boss"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Kenney Preview</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/kenney_tanksPack/Preview.png" alt="kenney tanks"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Motivo:</strong> Vetorial liso sem contorno pixelado; quebra a unidade visual do jogo.</div>
+  </div>
+
+  <div class="card" data-status="DESCARTAR">
+    <div class="card-head">
+      <span class="card-title">Sprites.zip (Army / Terrorist Cartoon)</span>
+      <span class="badge badge-DESCARTAR">INCOMPATÍVEL</span>
+    </div>
+    <div class="compare">
+      <div class="slot">
+        <span class="slot-label">Army Soldier (250×250)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/Sprites/Army Soldier Sprites/army soldier sprite sheet.png" alt="army"></div>
+      </div>
+      <div class="slot">
+        <span class="slot-label">Terrorist (246×297)</span>
+        <div class="thumb-wrap"><img src="../_audit_workspace/Sprites/Terrorist Sprites/terrorist sprite sheet.png" alt="terrorist"></div>
+      </div>
+    </div>
+    <div class="meta"><strong>Motivo:</strong> Estilo cartoon chibi pintado em alta resolução + ausência de licença anexada.</div>
+  </div>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.btn');
+  const cards = document.querySelectorAll('.card');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(c => {
+        c.style.display = (f === 'ALL' || c.dataset.status === f) ? 'flex' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

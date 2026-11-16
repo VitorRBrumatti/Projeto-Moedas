@@ -250,5 +250,132 @@
     ],
     "count": 8,
     "fps": 12
+  },
+  "dash-dust": {
+    "size": [
+      68,
+      32
+    ],
+    "count": 13,
+    "columns": 8,
+    "fps": 24,
+    "empty_frames": [
+      12
+    ]
+  },
+  "dust-puff": {
+    "size": [
+      72,
+      40
+    ],
+    "count": 14,
+    "columns": 8,
+    "fps": 24,
+    "empty_frames": [
+      13
+    ]
+  },
+  "coin-pickup": {
+    "size": [
+      32,
+      32
+    ],
+    "count": 10,
+    "columns": 8,
+    "fps": 22,
+    "empty_frames": [
+      9
+    ]
+  },
+  "ground-flames": {
+    "size": [
+      64,
+      40
+    ],
+    "count": 16,
+    "columns": 8,
+    "fps": 16
+  },
+  "steam-vent": {
+    "size": [
+      48,
+      72
+    ],
+    "count": 30,
+    "columns": 8,
+    "fps": 18
+  },
+  "treasure-glint": {
+    "size": [
+      48,
+      48
+    ],
+    "count": 16,
+    "columns": 8,
+    "fps": 16
+  },
+  "shooter-idle": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 6
+  },
+  "shooter-walk": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 8
+  },
+  "shooter-aim": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 6
+  },
+  "shooter-fire": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 14
+  },
+  "charger-idle": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 5
+  },
+  "charger-walk": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 8,
+    "fps": 14
+  },
+  "charger-aim": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 8
+  },
+  "charger-fire": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 14
   }
 }

@@ -8,7 +8,7 @@ from actors import Jogador, Pontuacao, inicializar_banco
 from campaign import Campaign, Weapon, STAGES, WEAPONS
 from ui_fx import ScreenMotion
 from world_fx import Hazard, Barrel
-from effects import Particula, TextoFlutuante, Casing, SpriteEcho
+from effects import Particula, TextoFlutuante, Casing, SpriteEcho, SpriteVfx
 from polish import TextPool, enemy_role
 from level_design import COVER_POSITIONS, ground_lane
 from sound import Audio
@@ -82,15 +82,7 @@ class Enemy(arcade.Sprite):
         self.knockback = 0.0
         self.volley = 0
         self.target_x = x
-        self.base_color = (
-            (255, 255, 255)
-            if kind == "guard"
-            else (
-                (166, 199, 255)
-                if kind == "shooter"
-                else (255, 153, 127) if kind == "charger" else (255, 255, 255)
-            )
-        )
+        self.base_color = (255, 255, 255)
         self.speed = 1.7 + level * 0.3
         self.direction = -1
         self.low = left or x - 100
@@ -108,7 +100,10 @@ class Enemy(arcade.Sprite):
         if self.kind in ("boss", "drone"):
             self.texture = texture(self.kind)
         else:
-            self.texture = texture("fighter-idle", flip=True)
+            self.texture = texture(f"{self._rig()}-idle", flip=True)
+
+    def _rig(self):
+        return self.kind if self.kind in ("shooter", "charger") else "fighter"
 
     def receive_hit(self, damage, direction, kind="ak"):
         self.hp -= damage
@@ -171,7 +166,7 @@ class Enemy(arcade.Sprite):
             state = ("fire" if self.attack_age < .4 else "aim" if self.aim_time > 0
                      else "walk" if self.is_moving else "idle")
             age = self.attack_age if state == "fire" else self.anim_age
-            self.texture = texture("fighter-" + state, age,
+            self.texture = texture(f"{self._rig()}-{state}", age,
                                    loop=state != "fire", flip=self.direction != 1)
 
     @property
@@ -364,6 +359,7 @@ class TelaJogo(arcade.View):
                 self.add_coin(x, 128)
         for x in COVER_POSITIONS[self.run.stage]:
             cover = Cover(x)
+            cover.visible = False
             self.covers.append(cover)
             self.blocks.append(cover)
             self.ballistic.append(cover)
@@ -677,6 +673,9 @@ class TelaJogo(arcade.View):
             and self.player.tempo_total > 0.15
         ):
             self.burst(self.player.center_x, self.player.bottom, (176, 171, 141), 5)
+            self.particles.append(
+                SpriteVfx("dust-puff", self.player.center_x, self.player.bottom + 14, 54, 30)
+            )
             self.audio.play("land")
         self._grounded_before = self.player.grounded
         if self.run.dash_time and not self._dash_echo and len(self.echoes) < 20:
@@ -702,6 +701,7 @@ class TelaJogo(arcade.View):
             self.collected += 1
             self.audio.play("coin_v4")
             self.burst(*coin.position, GOLD, 10)
+            self.particles.append(SpriteVfx("coin-pickup", *coin.position, 36, 36))
             self.label(f"+{value} $", coin.center_x, coin.top + 10)
             coin.remove_from_sprite_lists()
         # Each ambush is finite and drones arrive above the route, never on top of the player.
@@ -943,6 +943,10 @@ class TelaJogo(arcade.View):
         self.draw_supply()
         self.draw_exit()
         self.coins.draw(pixelated=True)
+        if not self.window.reduced_effects:
+            for coin in self.coins:
+                if coin.special:
+                    draw("treasure-glint", coin.center_x, coin.center_y, 44, 44, self.run.time + coin.phase)
         self.enemies.draw(pixelated=True)
         for echo in self.echoes:
             echo.draw()
@@ -1068,6 +1072,16 @@ class TelaJogo(arcade.View):
         elif self.stage.theme == "foundry":
             alpha = int(38 + math.sin(self.run.time * 3) * 15)
             rect(self.camera_x - WIDTH / 2, 96, WIDTH, 5, (255, 137, 52, alpha))
+            if not self.window.reduced_effects:
+                from sprite_assets import draw
+                left = self.camera_x - WIDTH / 2 - 80
+                right = self.camera_x + WIDTH / 2 + 80
+                for fx in (460, 1280, 2100, 2920):
+                    if left <= fx <= right:
+                        draw("ground-flames", fx, 114, 64, 40, self.run.time + fx * 0.01)
+                for sx in (840, 1720, 2540):
+                    if left <= sx <= right:
+                        draw("steam-vent", sx, 132, 48, 72, self.run.time + sx * 0.01)
 
     def weather(self):
         if self.window.reduced_effects:
@@ -1203,6 +1217,16 @@ class TelaJogo(arcade.View):
                         1
                         if self.held & {arcade.key.D, arcade.key.RIGHT}
                         else self.player.virado_para
+                    )
+                )
+                self.particles.append(
+                    SpriteVfx(
+                        "dash-dust",
+                        self.player.center_x - self.dash_direction * 14,
+                        self.player.bottom + 14,
+                        56,
+                        26,
+                        flip=self.dash_direction < 0,
                     )
                 )
                 self.audio.play("dash")

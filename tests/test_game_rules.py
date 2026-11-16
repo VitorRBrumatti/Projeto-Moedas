@@ -43,18 +43,30 @@ def test_generated_animation_contracts_and_transparency():
     for name, spec in registry.items():
         with Image.open(base / spec.get("file", name + ".png")) as image:
             w, h = spec["size"]
+            cols = spec.get("columns", spec["count"])
+            rows = (spec["count"] + cols - 1) // cols
             assert image.mode == "RGBA"
-            assert image.size == (w * spec["count"], h)
+            assert image.size == (w * cols, h * rows)
             if not spec.get("opaque", False):
                 assert image.getchannel("A").getextrema()[0] == 0
             for i in range(spec["count"]):
-                bbox = image.crop((i*w, 0, (i+1)*w, h)).getchannel("A").getbbox()
+                col, row = i % cols, i // cols
+                bbox = image.crop((col * w, row * h, (col + 1) * w, (row + 1) * h)).getchannel("A").getbbox()
                 if i in spec.get("empty_frames", []):
                     assert bbox is None
                 else:
                     assert bbox, (name, i)
     for name in ("insignia", "mine", "jerrycan", "emitter", "boss", "drone"):
         assert registry[name]["count"] == 8
+
+
+def test_cover_positions_clear_of_low_platforms():
+    from level_design import LAYOUTS, COVER_POSITIONS
+    for plats, covers in zip(LAYOUTS, COVER_POSITIONS):
+        for cx in covers:
+            for px, py, pw in plats:
+                if py <= 240:
+                    assert cx + 36 <= px - pw / 2 or cx >= px + pw / 2, (cx, px, py, pw)
 
 
 def test_local_march_and_weapon_audio_are_real_pcm():

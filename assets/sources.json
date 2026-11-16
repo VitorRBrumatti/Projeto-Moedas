@@ -158,28 +158,28 @@
   },
   {
     "integrated": "assets/sprites/fighter-idle.png",
-    "sha256": "517803ea5fab6ef527d49bc12deb2422a42c9175df4324867ca7f8c4da95507c",
+    "sha256": "bc5b9461b7589961047d1fc0182aa9fa17bf9f01621eb408ce9048bd47fddd2b",
     "previous_path": "assets/v7/fighter-idle.png",
     "author": "Arte gerada para o projeto com built-in image_gen",
     "permission": "Produção solicitada pelo usuário; fontes e briefs preservados no arquivo histórico"
   },
   {
     "integrated": "assets/sprites/fighter-walk.png",
-    "sha256": "721f9e65313cc35985e7d4241048d0106d0ca77db9f5bc295c51db71e0fc9a2d",
+    "sha256": "d8471f848172d00458af94d5ceef62d4fcec6ba8051787c6a70aeea2dfd09634",
     "previous_path": "assets/v7/fighter-walk.png",
     "author": "Arte gerada para o projeto com built-in image_gen",
     "permission": "Produção solicitada pelo usuário; fontes e briefs preservados no arquivo histórico"
   },
   {
     "integrated": "assets/sprites/fighter-aim.png",
-    "sha256": "6c91d46446cac4daabed7b87289a8eef253a4879248968b96997a3845f713067",
+    "sha256": "f2488112fab4b578acf170d6a48e545acf296fb9402d75cecd6c896b9a070728",
     "previous_path": "assets/v7/fighter-aim.png",
     "author": "Arte gerada para o projeto com built-in image_gen",
     "permission": "Produção solicitada pelo usuário; fontes e briefs preservados no arquivo histórico"
   },
   {
     "integrated": "assets/sprites/fighter-fire.png",
-    "sha256": "ee9d51f1c7d6ebe11948598489a10c80cdbd704ef08304e704171754171887ff",
+    "sha256": "a2476b953b457e5e437ba8d02ca1d1e1a29670323071b16f8258736752e91a18",
     "previous_path": "assets/v7/fighter-fire.png",
     "author": "Arte gerada para o projeto com built-in image_gen",
     "permission": "Produção solicitada pelo usuário; fontes e briefs preservados no arquivo histórico"
@@ -383,5 +383,109 @@
     "previous_path": "assets/v6/shot-minigun.wav",
     "author": "Síntese local do projeto",
     "permission": "Áudio original sintetizado localmente"
+  },
+  {
+    "integrated": "assets/sprites/dash-dust.png",
+    "sha256": "fc75c1b9d00461161026b358873291fced47201a23bb49e556184726d4d95726",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/smoke/dash-dust/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/dust-puff.png",
+    "sha256": "9282f6c04ebf9b23f994ece611e16a6f0787f21fdd6b54adc290d2fd58d35e2a",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/smoke/dust-puff/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/coin-pickup.png",
+    "sha256": "ac8362e399ca8686beb70e9a98a4e9c753a69aeaae8b7d1830969fac5f06e3f2",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/ui/coin-pickup/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/ground-flames.png",
+    "sha256": "ca090edcdee8ee55461b96c0371654abd339205b095e12e5e4f110943825112f",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/fire/ground-flames/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/steam-vent.png",
+    "sha256": "a8337c91b7801bf91d472e603282f77a85f95aa2d68ca3a8f9e3bee19877b11e",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/smoke/steam-vent/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/treasure-glint.png",
+    "sha256": "e9ab410be5e0721c536f41e7bf4b971e5921dad76251655e0cda2a5e724ffb43",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/ui/treasure-glint/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/shooter-idle.png",
+    "sha256": "30dd06af9f9ffd60c617400c225c0c537943643ce3db1a7f4feded4d6ad860d0",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/shooter-walk.png",
+    "sha256": "a094e8c489eb1d6e5e7ff9210d02adde44b090e1b70ba533796c5434f9c651b5",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/shooter-aim.png",
+    "sha256": "a094e8c489eb1d6e5e7ff9210d02adde44b090e1b70ba533796c5434f9c651b5",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/shooter-fire.png",
+    "sha256": "aa8bab6e18bc7f9d691734e23b9c2c474070219f27520cfda51d00cffef7c6c6",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/charger-idle.png",
+    "sha256": "6cc6efe11dea1a2a51098a5d77817983e17f1bf42fc566dcbf022b0a56101ef9",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/charger-walk.png",
+    "sha256": "b23108199994755a05cde9e6f39579c2d34dc40a55776119ec1dd090f9ef3fb5",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/charger-aim.png",
+    "sha256": "6e7228d840dcff745ea565230ba628657e92e66636b337cc28e112178b5cad26",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/charger-fire.png",
+    "sha256": "a6cfa97806b666e7aac3241992582d7fbe514bbe37447a7dd62606ef6718b536",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
   }
 ]

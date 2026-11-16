@@ -1,67 +1,50 @@
-# Coin Commando — fontes e licenças dos assets
+# Fontes, Licenças e Rastreabilidade de Assets — Coin Commando
 
-> Registro histórico de produção. Caminhos atuais e hashes: `assets/sources.json`;
-> versões/fontes preservadas em `assets/archive/`; mapa em `docs/ASSET_RELOCATION.json`.
-> Changelogs V5–V8 agora ficam em `docs/history/`.
+Este documento registra a origem, licença verificada e elegibilidade técnica de todos os pacotes inspecionados na pasta pai (`../`).
 
-Os arquivos originais estão na pasta pai do projeto. As cópias usadas para
-inventário ficam em `_audit_workspace/`; elas são apenas material de trabalho.
+> **Regra de conformidade (`AGENTS.md`):** Nunca introduzir assets com licença incompatível ou desconhecida em produção sem validar a licença original na fonte de download.
 
-| Pacote | Fonte local | Licença encontrada | Uso recomendado |
-| --- | --- | --- | --- |
-| Kenney Crosshair Pack | `../kenney_crosshair-pack.zip` | CC0 em `License.txt` | Crosshair, sem restrição de atribuição; creditar Kenney é recomendado. |
-| Kenney Tanks | `../kenney_tanksPack.zip` | CC0 em `License.txt` | Minas, barris, caixas, explosões e veículos decorativos; adaptar perspectiva. |
-| PVFX Foundry | `../pvfx-foundry-thirteen-spritesheets.zip` | CC0 para folhas/metadados em `README.md` e `LICENSE.txt`; toolkit citado é MIT | Efeitos, respeitando manifestos e a separação `lit`/`strict`. |
-| vista-ten | `../vista-ten-1.0.0.zip` | CC0-1.0 em `LICENCE.txt` e nos `.json` | Fundos em camadas; adaptar para a câmera de `960x640`. |
-| Sprites | `../Sprites.zip` | Não encontrado dentro do pacote | Não integrar/publicar até confirmar a licença na fonte original. |
-| Generic Run 'n Gun | `../vacaroxa--generic-run-n-gun-pack--v.1.0.zip` | Não encontrado dentro do pacote | Não integrar/publicar até confirmar a licença na fonte original. |
-| Helicopter | `../helicopter.zip` | Não encontrado dentro do pacote | Uso condicionado à confirmação da licença. |
-| Assorted Pixel Art | `../AssortedPixelArt.rar` | Não encontrado dentro do pacote | Uso condicionado à confirmação da licença. |
-| Pixel Art - City Landscape V2 | `../Pixel Art - City Landscape V2.zip` | Não encontrado dentro do pacote | Uso condicionado à confirmação da licença. |
+---
 
-## Rastreabilidade
+## 1. Tabela de Pacotes Inspecionados
 
-- A auditoria foi feita sobre os nove arquivos compactados presentes em
-  `Z:\ProjetoHermesJogo`.
-- O `.rar` foi correlacionado com a pasta de trabalho já extraída
-  `_audit_workspace/AssortedPixelArt/`; o arquivo original permaneceu intacto.
-- Não foram baixados assets adicionais nem geradas imagens por IA.
-- Antes de copiar qualquer arquivo para `assets/`, confirmar os termos na
-  página de origem e registrar a atribuição necessária no projeto.
+| Arquivo Compactado (`../`) | Conteúdo Principal | Arquivo de Licença no Pacote | Licença Identificada | Situação Legal | Recomendação |
+|---|---|---|---|---|---|
+| `pvfx-foundry-thirteen-spritesheets.zip` | Spritesheets de VFX pixel art (`lit` e `strict`, `grid` e `packed`, com `manifest.json`) | `LICENSE.txt`, `PROVENANCE.json` | **CC0 1.0 Universal** (Domínio Público) | **Liberado** (uso comercial e pessoal sem atribuição obrigatória) | **Usar diretamente** (priorizar pasta `strict/grid` para pixel art). |
+| `kenney_crosshair-pack.zip` | 200 miras de mouse (`Dark`, `Outline`, `White`) | `License.txt` | **CC0 1.0 Universal** (Kenney.nl) | **Liberado** | **Usar diretamente** (`Outline` ou `Dark` escalado para ~`0.45–0.5`). |
+| `vista-ten-1.0.0.zip` | 10 cenários parallax de 4 camadas (`384×216` e `@3x`) + paletas `.gpl` | `LICENCE.txt` | **CC0 1.0 Universal** | **Liberado** (proibido apenas revender como asset pack) | **Reserva técnica** (útil se quiser parallax real multi-camada). |
+| `kenney_tanksPack.zip` | Tanques, barris, caixotes e minas vetoriais | `License.txt` | **CC0 1.0 Universal** (Kenney.nl) | **Liberado** | **Não usar** (estilo vetorial flat incompatível com pixel art). |
+| `vacaroxa--generic-run-n-gun-pack--v.1.0.zip` | Inimigos (`ARMob`, `RPGmob`, `SniperMob`), jogador, tilesets urbanos/industriais, explosão | **Nenhum arquivo de licença dentro do `.zip`** | Não informada no arquivo | **Atenção:** confirmar licença na página do autor (`vacaroxa` no Itch.io) antes de publicar/entregar | **Adaptar** inimigos, caixote e tiles industriais após confirmar licença. |
+| `helicopter.zip` | Helicóptero pixel art 8 quadros (`96×32`) + partes destruídas | **Nenhum arquivo de licença dentro do `.zip`** | Não informada no arquivo | **Atenção:** confirmar origem e licença antes de distribuir | **Opcional** para extração/cutscene após confirmar licença. |
+| `AssortedPixelArt.rar` | `IndustrialRuins_32x32.png`, `MyCaveTileset_32x32.png`, `monster_64x64.png`, `TopDownModernExterior_16x16.png` | **Nenhum arquivo de licença dentro do `.rar`** | Não informada no arquivo | **Atenção:** confirmar origem e licença antes de distribuir | **Adaptar** apenas `IndustrialRuins_32x32.png` se licença for compatível. |
+| `Pixel Art - City Landscape V2.zip` | Camadas de fundo de cidade pixel art (`512px` largura) | **Nenhum arquivo de licença** (apenas `SpriteList.txt`) | Não informada no arquivo | **Atenção:** confirmar origem e licença | **Não necessário** (sem fase urbana no jogo atual). |
+| `Sprites.zip` | `Army Soldier Sprites` (`250×250`) e `Terrorist Sprites` (`246×297`) | **Nenhum arquivo de licença** (`README.html` -> `yoogameart.com`) | Não informada no arquivo | **Não recomendado** (licença não anexada + estilo incompatível) | **Descartar** (estilo cartoon pintado e escala incompatível). |
 
-## Integração efetiva V5-A — 10/11/2026
+---
 
-| Fonte / caminho interno | Autor / permissão | Arquivo integrado | Adaptação |
-| --- | --- | --- | --- |
-| PNG avulso `../commando_unarmed_10f_960x128.png` (não pertence a ZIP/RAR) | Usuário Vitor, confirmou autoria e autorizou uso/modificação/redistribuição nesta sessão; sem licença padronizada declarada | `assets/v5/commando.png` | +6 px Y, RGBA; células mantidas; original intacto |
+## 2. Mapa de Origem -> Destino Recomendado (Somente Pacotes Liberados ou Elegíveis)
 
-SHA-256 fonte: `614cb031152f03be6f677deea98b281b919fecdf5fe07cde2a8954efb385cdaa`.
-SHA-256 integrado: `4db7666af7a49cde7322d1d4e2d419d50fa04eacc128011306c2e6518a77a943`.
-Registro verificável: `assets/v5/sources.json`. Não há URL de origem externa conhecida.
-Drone/boss também têm autoria confirmada, porém não foram integrados por incompatibilidade
-da grade presumida. Fundo `assets/ruins.png` e armas locais foram reutilizados, não importados
-de packs. Nenhum ZIP/RAR forneceu arquivo novo ao runtime nesta sprint.
+| Recurso de Origem (`_audit_workspace/...`) | Alvo no Coin Commando | Ação Necessária |
+|---|---|---|
+| `pvfx-foundry-thirteen-spritesheets/effects/explosions/big-explosion/strict/grid/sprite-sheet.png` | Explosões de `Grenade`, `Barrel`, `Impact("explosion")` | Carregar grid `128×128`, 18 quadros |
+| `pvfx-foundry-thirteen-spritesheets/effects/explosions/small-explosion/strict/grid/sprite-sheet.png` | Morte de `Drone` / explosões menores | Carregar grid `64×64`, 14 quadros |
+| `pvfx-foundry-thirteen-spritesheets/effects/impacts/hit-spark/strict/grid/sprite-sheet.png` | Impacto de projéteis (`Impact("bullet")`) | Carregar grid `64×64`, 8 quadros |
+| `pvfx-foundry-thirteen-spritesheets/effects/smoke/dash-dust/strict/grid/sprite-sheet.png` | Poeira de `Dash` e `Charger` | Carregar grid `68×32`, 13 quadros |
+| `pvfx-foundry-thirteen-spritesheets/effects/smoke/dust-puff/strict/grid/sprite-sheet.png` | Poeira de pouso (`land`) | Carregar grid `72×40`, 14 quadros |
+| `pvfx-foundry-thirteen-spritesheets/effects/fire/ground-flames/strict/grid/sprite-sheet.png` e `lava-burst` | Chamas/lava da Fase 3 (Fundição) | Carregar grid `64×40` / `64×72` em loop |
+| `pvfx-foundry-thirteen-spritesheets/effects/ui/coin-pickup/strict/grid/sprite-sheet.png` | Efeito visual ao coletar moeda | Carregar grid `32×32`, 10 quadros |
+| `pvfx-foundry-thirteen-spritesheets/effects/ui/treasure-glint/strict/grid/sprite-sheet.png` | Brilho contínuo sobre `MoedaEspecial` | Carregar grid `48×48`, 16 quadros (loop) |
+| `kenney_crosshair-pack/PNG/Outline/crosshair-*.png` | Mira do mouse em `TelaJogo` | Carregar 1 textura escolhida com `scale=0.45` |
+| `vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png` e `ARMob.png` | Variantes visuais de `Shooter` e `Charger` | **Após confirmar licença:** fatiar e aplicar upscale nearest-neighbor ~2× |
+| `vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_2/tileset/tiles_out.png` | Caixote (`Cover`), `bridge.png` e plataformas industriais | **Após confirmar licença:** recortar regiões para `36×48` / `48×24` / `48×48` |
+| `vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_1/Tileset/Subway_tiles.png` | Tiles da Fase 3 (Fundição) | **Após confirmar licença:** recortar blocos `48×48` |
 
-## V5-B — quatro PNGs Kenney integrados
-Munição, proteção e reparo: kenney_tanksPack.zip / PNG/Default size/tanks_crate{Ammo,Armor,Repair}.png.
-Mira: kenney_crosshair-pack.zip / PNG/Outline/crosshair-002.png.
-CC0 conferida nos License.txt locais, copiados em assets/v5/. Autor Kenney (kenney.nl).
-Destinos ammo.png, armor.png, repair.png e crosshair.png em assets/v5/.
-Hashes, caminhos exatos e recorte alpha da mira em assets/v5/sources.json.
-Uso real no HUD/loja/mira; ver V5B_CHANGELOG.md e evidências.
+---
 
-## V6 — geração e integração real
-Sprites novos em assets/v6/, incluindo armas, props e bandido gerados via built-in image_gen.
-Drone/Iron Commander próprios integrados com grade4×2 validada. PVFX explosão/impactos
-e Kenney cobertura/projétil adaptados sob suas licenças. Registro por arquivo, hash
-e fonte em assets/v6/sources.json; briefs em generation-prompts.md. Originais intactos.
+## 3. Assets Atuais Mantidos em `assets/`
 
-## Revisão V7
-Folhas novas de combatente e ponte via built-in image_gen em assets/v7; fontes intactas,
-hashes/briefs na mesma pasta. Combatente possui7frames reais por estado, ponte8.
-Traçante é adaptação com contraste do raster V6. Ver V7_CORRECOES.md.
-
-## V8
-Plataformas/parede/caixa militar geradas por built-in image_gen; derivados e fonte
-em assets/v8, com hashes e brief. Insígnia é adaptação de contraste do raster V6.
-Original preservado; mapeamento ativo em assets/v6/sprites.json.
+- `player.png` (`960×128`, 10 quadros `96×128`) — **MANTER** (requisito POO obrigatório).
+- `guard.png` (`96×128`), `boss.png` (`240×144`), `drone.png` (`78×66`) — **MANTER**.
+- `ruins.png`, `desert.png`, `foundry.png`, `snow.png`, `arcade-menu.png` — **MANTER**.
+- `stone.png` (`48×48`), `wall.png` (`48×48`) — **MANTER** (para Fase 1 Selva/Ruínas).
+- `bridge.png` (`48×24`), `coin.png` (`27×27`) — **SUBSTITUIR** (por versão adaptada e sprite animado novo, respectivamente).

@@ -36,4 +36,17 @@ def test_runtime_registry_does_not_depend_on_archived_assets():
     for name, spec in registry.items():
         image = (folder / spec.get("file", name + ".png")).resolve()
         assert image.is_relative_to(folder.resolve()) and image.is_file()
+        with Image.open(image) as img:
+            cols = spec.get("columns", spec["count"])
+            w, h = spec["size"]
+            assert img.width >= cols * w and img.height >= ((spec["count"] + cols - 1) // cols) * h
     assert "beam" not in registry and "bullet" not in registry
+
+
+def test_vfx_sprites_and_sprite_vfx_lifecycle():
+    from effects import SpriteVfx
+    for name in ("dash-dust", "dust-puff", "coin-pickup", "ground-flames", "steam-vent", "treasure-glint"):
+        vfx = SpriteVfx(name, 100, 200, 40, 30, flip=True)
+        assert vfx.vida > 0
+        vfx.update(vfx.vida + 0.05)
+        assert vfx.vida < 0

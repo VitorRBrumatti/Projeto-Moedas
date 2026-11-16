@@ -12,7 +12,7 @@ REGISTRY = json.loads((BASE / 'sprites.json').read_text(encoding='utf-8'))
 def frames(name):
     spec = REGISTRY[name]
     return arcade.load_spritesheet(str(BASE / spec.get("file", name + ".png"))).get_texture_grid(
-        size=tuple(spec['size']), columns=spec['count'], count=spec['count'])
+        size=tuple(spec['size']), columns=spec.get('columns', spec['count']), count=spec['count'])
 
 
 @lru_cache(maxsize=None)
@@ -23,7 +23,7 @@ def mirrored(name):
 def preload():
     for name in REGISTRY:
         frames(name)
-        if name.startswith("fighter-") or name in ("boss", "drone"):
+        if name.startswith(("fighter-", "shooter-", "charger-")) or name in ("boss", "drone"):
             mirrored(name)
 
 
@@ -33,7 +33,7 @@ def texture(name, age=0, loop=True, flip=False):
     return (mirrored(name) if flip else frames(name))[index % spec['count'] if loop else min(index, spec['count'] - 1)]
 
 
-def draw(name, x, y, width, height, age=0, *, angle=0, alpha=255, loop=True):
-    arcade.draw_texture_rect(texture(name, age, loop),
+def draw(name, x, y, width, height, age=0, *, angle=0, alpha=255, loop=True, flip=False):
+    arcade.draw_texture_rect(texture(name, age, loop, flip=flip),
         arcade.LBWH(x - width/2, y - height/2, width, height),
         angle=angle, alpha=alpha, pixelated=True)
