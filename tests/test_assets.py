@@ -45,7 +45,18 @@ def test_runtime_registry_does_not_depend_on_archived_assets():
 
 def test_vfx_sprites_and_sprite_vfx_lifecycle():
     from effects import SpriteVfx
-    for name in ("dash-dust", "dust-puff", "coin-pickup", "ground-flames", "steam-vent", "treasure-glint"):
+    for name in (
+        "dash-dust",
+        "dust-puff",
+        "coin-pickup",
+        "ground-flames",
+        "steam-vent",
+        "treasure-glint",
+        "rock-shatter",
+        "heart-pickup",
+        "shooter-death",
+        "charger-death",
+    ):
         vfx = SpriteVfx(name, 100, 200, 40, 30, flip=True)
         assert vfx.vida > 0
         vfx.update(vfx.vida + 0.05)

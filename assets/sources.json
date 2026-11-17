@@ -487,5 +487,56 @@
     "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png",
     "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
     "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/shooter-death.png",
+    "sha256": "8328319888b294fbfcc8953eea9000a7496d78432d71f6872b331bee064f5b8c",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/SniperMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/charger-death.png",
+    "sha256": "c98b674b62c124607a93667971cd8cbd3e75a0406c471c329f615bde76314db4",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Enemies/ARMob.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/rock-shatter.png",
+    "sha256": "2fdcab661cb2ffa44c371c3bd330dda0edfaba268c8060627da8e62be1581d2e",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/impacts/rock-shatter/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/heart-pickup.png",
+    "sha256": "2c301995cd3f05614186122fbb2eb76417843049f87f1d9b6cbea0897b69a690",
+    "previous_path": "_audit_workspace/pvfx-foundry-thirteen-spritesheets/effects/ui/heart-pickup/strict/grid/sprite-sheet.png",
+    "author": "PVFX Foundry",
+    "permission": "CC0 para sprite-sheet.png e manifest.json",
+    "license_file": "assets/licenses/PVFX-LICENSE.txt"
+  },
+  {
+    "integrated": "assets/sprites/tile-foundry-ground.png",
+    "sha256": "b7237362cc235e37a1dc78718dafc68d120242b4b8a3231b3bad881b914e39a4",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_1/Tileset/Subway_tiles.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/tile-foundry-platform.png",
+    "sha256": "8baef481952cd144f416288dcd7b7059b5b25cd7deac4b11d764e95348e8bc8a",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_2/tileset/tiles_out.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
+  },
+  {
+    "integrated": "assets/sprites/tile-foundry-wall.png",
+    "sha256": "5bcccd056b0039658228143aa2f818b7fd18ea14abbf5be73d2f3048573eef7e",
+    "previous_path": "_audit_workspace/vacaroxa--generic-run-n-gun-pack--v.1.0/Assets_area_2/tileset/tiles_out.png",
+    "author": "vacaroxa (Generic Run'n'Gun Pack v1.0)",
+    "permission": "Licença confirmada pelo usuário para uso não comercial e testes"
   }
 ]

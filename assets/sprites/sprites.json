@@ -377,5 +377,72 @@
     ],
     "count": 4,
     "fps": 14
+  },
+  "shooter-death": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 10
+  },
+  "charger-death": {
+    "size": [
+      128,
+      128
+    ],
+    "count": 4,
+    "fps": 10
+  },
+  "rock-shatter": {
+    "size": [
+      64,
+      56
+    ],
+    "count": 18,
+    "columns": 8,
+    "fps": 28,
+    "empty_frames": [
+      17
+    ]
+  },
+  "heart-pickup": {
+    "size": [
+      32,
+      40
+    ],
+    "count": 10,
+    "columns": 8,
+    "fps": 18,
+    "empty_frames": [
+      9
+    ]
+  },
+  "tile-foundry-ground": {
+    "size": [
+      48,
+      48
+    ],
+    "count": 1,
+    "fps": 1,
+    "opaque": true
+  },
+  "tile-foundry-platform": {
+    "size": [
+      48,
+      48
+    ],
+    "count": 1,
+    "fps": 1,
+    "opaque": true
+  },
+  "tile-foundry-wall": {
+    "size": [
+      48,
+      48
+    ],
+    "count": 1,
+    "fps": 1,
+    "opaque": true
   }
 }

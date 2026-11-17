@@ -69,9 +69,24 @@ class Impact:
 
 def draw_projectile(bullet):
     from sprite_assets import draw
+    if bullet.hostile and bullet.kind == "sniper":
+        rad = math.radians(bullet.angle)
+        dx, dy = math.cos(rad), math.sin(rad)
+        tx, ty = bullet.center_x - dx * 34, bullet.center_y - dy * 34
+        hx, hy = bullet.center_x + dx * 6, bullet.center_y + dy * 6
+        arcade.draw_line(tx, ty, hx, hy, (12, 24, 38, 220), 6)
+        arcade.draw_line(tx, ty, hx, hy, (78, 226, 255, 245), 3.5)
+        arcade.draw_line(bullet.center_x - dx * 16, bullet.center_y - dy * 16, hx, hy, (238, 255, 255, 255), 1.5)
+        return
+    if not bullet.hostile and not bullet.knife:
+        rad = math.radians(bullet.angle)
+        dx, dy = math.cos(rad), math.sin(rad)
+        tx, ty = bullet.center_x - dx * 26, bullet.center_y - dy * 26
+        arcade.draw_line(tx, ty, bullet.center_x, bullet.center_y, (255, 168, 52, 185), 4)
+        arcade.draw_line(bullet.center_x - dx * 14, bullet.center_y - dy * 14, bullet.center_x, bullet.center_y, (255, 248, 175, 235), 2)
     draw("knife" if bullet.knife else "hostile-tracer" if bullet.hostile else "tracer", *bullet.position,
-         28 if bullet.knife else 32 if bullet.hostile else 20,
-         24 if bullet.knife else 12 if bullet.hostile else 7,
+         28 if bullet.knife else 32 if bullet.hostile else 32,
+         24 if bullet.knife else 12 if bullet.hostile else 11,
          age=1.8-bullet.life, angle=-bullet.angle)
 
 

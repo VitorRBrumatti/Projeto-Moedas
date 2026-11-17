@@ -41,13 +41,14 @@ def center(message, y, size=20, color=WHITE):
 
 
 class Bloco(arcade.Sprite):
-    def __init__(self, x, y, bridge=False, wall=False, ballistic=False):
+    def __init__(self, x, y, bridge=False, wall=False, ballistic=False, theme=None):
         super().__init__(
             asset("bridge.png" if bridge else ("wall.png" if wall else "stone.png"))
         )
         from sprite_assets import texture
         if not bridge:
-            self.texture = texture("tile-wall" if wall else "tile-ground" if y <= 96 else "tile-platform")
+            prefix = "tile-foundry-" if theme == "foundry" else "tile-"
+            self.texture = texture(prefix + ("wall" if wall else "ground" if y <= 96 else "platform"))
         self.ballistic = ballistic
         self.width = 48
         self.height = 24 if bridge else 48
@@ -299,6 +300,11 @@ class TelaJogo(arcade.View):
         self.accumulator = 0.0
         self.entrance = 0.35
         self.window.set_mouse_visible(False)
+        if getattr(self, "_hp_before_shop", None) is not None and self.run.hp > self._hp_before_shop:
+            self.particles.append(
+                SpriteVfx("heart-pickup", self.player.center_x, self.player.top + 8, 32, 40)
+            )
+        self._hp_before_shop = None
 
     def clear_input(self):
         self.held.clear()
@@ -325,15 +331,15 @@ class TelaJogo(arcade.View):
         self.player.position = (90, 150)
         self.players.append(self.player)
         for x in range(0, self.stage.length + 48, 48):
-            floor = Bloco(x, 96, ballistic=True)
+            floor = Bloco(x, 96, ballistic=True, theme=self.stage.theme)
             self.blocks.append(floor)
             self.ballistic.append(floor)
-            self.decor.append(Bloco(x, 48, wall=True))
+            self.decor.append(Bloco(x, 48, wall=True, theme=self.stage.theme))
         for idx, (x, y, w) in enumerate(self.stage.platforms):
             for bx in range(int(x - w / 2), int(x + w / 2), 48):
-                self.blocks.append(Bloco(bx, y, bridge=idx % 3 == 1))
+                self.blocks.append(Bloco(bx, y, bridge=idx % 3 == 1, theme=self.stage.theme))
                 if idx % 3 != 1:
-                    self.decor.append(Bloco(bx, y - 48, wall=True))
+                    self.decor.append(Bloco(bx, y - 48, wall=True, theme=self.stage.theme))
             offsets = (
                 (-28, 28)
                 if w == 144
@@ -366,7 +372,7 @@ class TelaJogo(arcade.View):
         terrain = {
             "jungle": (255, 255, 255),
             "desert": (240, 184, 131),
-            "foundry": (130, 156, 182),
+            "foundry": (255, 255, 255),
             "snow": (176, 219, 247),
         }[self.stage.theme]
         for b in self.blocks:
@@ -549,7 +555,18 @@ class TelaJogo(arcade.View):
         self.run.score += gain
         self.run.wallet += 50 if enemy.kind == "boss" else 2
         self.audio.play("impact")
-        if len(self.echoes) < 20:
+        if enemy.kind in ("shooter", "charger"):
+            self.particles.append(
+                SpriteVfx(
+                    f"{enemy.kind}-death",
+                    enemy.center_x,
+                    enemy.center_y,
+                    enemy.width,
+                    enemy.height,
+                    flip=enemy.direction != 1,
+                )
+            )
+        elif len(self.echoes) < 20:
             self.echoes.append(SpriteEcho(enemy, death=True))
         self.burst(*enemy.position, (255, 151, 57), 24)
         self.label(f"+{gain} / {multiplier}x", enemy.center_x, enemy.top)
@@ -582,6 +599,7 @@ class TelaJogo(arcade.View):
             return
         self.clear_input()
         self.accumulator = 0.0
+        self._hp_before_shop = self.run.hp
         self.window.show_view(TelaLoja(self))
 
     def on_update(self, delta_time):
@@ -822,7 +840,10 @@ class TelaJogo(arcade.View):
                     elif category == "player":
                         self.damage()
                     else:
-                        self.impact(*point)
+                        if getattr(target, "is_cover", False):
+                            self.particles.append(SpriteVfx("rock-shatter", *point, 44, 38))
+                        else:
+                            self.impact(*point)
                     bullet.position = point
                     bullet.remove_from_sprite_lists()
                     break
@@ -859,7 +880,7 @@ class TelaJogo(arcade.View):
             shot_x, shot_y = enemy.shot_origin
             a = math.atan2(self.player.center_y - shot_y, self.player.center_x - shot_x)
             enraged = enemy.kind == "boss" and enemy.hp < enemy.max_hp * 0.5
-            speed = 3.45 + self.run.stage * 0.25
+            speed = (5.8 + self.run.stage * 0.35) if enemy.kind == "shooter" else (3.45 + self.run.stage * 0.25)
             enemy.volley += 1
             enemy.attack_age = 0
             mortar = enemy.kind == "boss" and enemy.volley % 3 == 0
@@ -890,6 +911,7 @@ class TelaJogo(arcade.View):
                             math.cos(a + spread) * speed,
                             math.sin(a + spread) * speed,
                             True,
+                            kind="sniper" if enemy.kind == "shooter" else "ak",
                         )
                     )
             enemy.shot_clock = (
@@ -971,7 +993,7 @@ class TelaJogo(arcade.View):
         for p in self.labels:
             p.draw()
         for enemy in self.enemies:
-            enemy_role(enemy)
+            enemy_role(enemy, self.player)
             if enemy.alert and enemy.kind != "charger":
                 text("!", enemy.center_x, enemy.top + 5, 14, RED, bold=True)
             if enemy.kind == "boss":
